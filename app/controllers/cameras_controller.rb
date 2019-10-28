@@ -12,7 +12,7 @@ before_action :set_camera, only: [:index, :show, :edit, :update, :destroy]
   def create
     @camera = Camera.new(camera_params)
     if @camera.save
-      redirect_to cameras_show_path(@camera)
+      redirect_to camera_path(@camera)
     else
       render :new
     end
