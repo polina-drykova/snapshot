@@ -49,28 +49,33 @@
 <%= yield %>
 
 <div class="footer-container">
-<div class="container">
+<div class="container" style="width: 800px">
   <div class="row">
 
-    <div class="col-md-6 footer-side text-center">
+    <div class="col-sm-4 footer-side text-center">
         <div style="margin-top: 12px"><h4>Information</h4></div>
         <div class="name-logo-container">
           <div class="names-container">
             <div class="footer-text text-center"><p>About</p></div>
             <div class="footer-text text-center"><p>Contact<p></div>
             <div class="footer-text text-center"><p>Terms and Conditions<p></div>
-                <div class="footer-links">
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fab fa-facebook"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
+              <div class="footer-text text-center"><p>Site Map<p></div>
           </div>
-
       </div>
       </div>
 
+      <div class="col-sm-4 footer-side align-middle">
+        <div class="logo-section">
+        <div class="footer-links">
+          <a style="font-size: 36px" href="#"><i class="fab fa-instagram"></i></a>
+          <a style="font-size: 36px" href="#"><i class="fab fa-facebook"></i></a>
+          <a style="font-size: 36px" href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        </div>
+     </div>
 
-    <div class="col-md-6 footer-side text-center">
+
+    <div class="col-sm-4 footer-side text-center">
         <div style="margin-top: 12px"><h4>Colloborators</h4></div>
         <div class="name-logo-container text-justify">
           <div class="names-container">
@@ -92,20 +97,6 @@
 </div>
 </div>
 
-
-<br>
-
-<div class="footer-container">
-  <div class="container text-center">
-    <div class="footer">
-    <div class="footer-links">
-      <a style="font-size: 36px" href="#"><i class="fab fa-instagram"></i></a>
-      <a style="font-size: 36px" href="#"><i class="fab fa-facebook"></i></a>
-      <a style="font-size: 36px" href="#"><i class="fab fa-twitter"></i></a>
-    </div>
-    </div>
-  </div>
-</div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
