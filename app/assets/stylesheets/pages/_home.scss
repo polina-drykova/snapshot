@@ -1,1 +1,37 @@
 // Specific CSS for your home-page
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  height: 800px;
+  position: relative;
+  width: 100%;
+}
+
+.bg-transparent {
+  width: 85%;
+  margin: auto;
+
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-bundle {
+  // position: absolute;
+  // top: 500px;
+  margin: auto;
+  margin-bottom: 150px;
+  // padding-top: 50px;
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  width: 850px;
+    p {
+      color: white;
+    }
+}
+
+.button-flat {
+padding: 30px;
+}
