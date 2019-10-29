@@ -1,27 +1,55 @@
-<h1>Add a new Camera</h1>
+<%= render 'shared/navbar' %>
+<div class="my-5">
+  <div class="card d-flex justify-content-center text-center align-items-column m-auto py-4" style="width: 600px">
 
-<%= simple_form_for(@camera) do |f| %>
+      <h1>Add a new Listing</h1>
 
-<% if @camera.errors.any? %>
-<div class="errors-container">
-  <ul>
-    <% @camera.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+      <%= simple_form_for(@camera) do |f| %>
+
+      <% if @camera.errors.any? %>
+      <div class="errors-container">
+        <ul>
+          <% @camera.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
 
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :description %>
-    <%= f.input :policies %>
-    <%= f.input :price_per_day %>
-    <br>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
-    <%= f.button :submit %>
+        <div class="form-inputs align-items-center m-auto pt-3 " style="width: 75%;">
+          <%= f.input :name,
+                    label: false,
+                    placeholder: 'Title' %>
+          <%= f.input :address,
+                    label: false,
+                    placeholder: 'Address'%>
+          <%= f.input :description,
+                    label: false,
+                    placeholder: 'Description',
+                    :as => :text,
+                    :input_html => { 'rows' => 5, 'cols' => 10 } %>
+          <%= f.input :policies,
+                    label: false,
+                    placeholder: 'Policies',
+                    :as => :text,
+                    :input_html => { 'rows' => 5, 'cols' => 10 } %>
+          <%= f.input :price_per_day,
+                    label: false,
+                    placeholder: 'Price per day' %>
+          <hr class="mx-auto my-3" style="width: 75%;">
+          <div class="mx-auto my-3" style="width: 50%;">
+          <%= f.input :photo,
+                    label: false %>
+          <%= f.input :photo_cache,
+                    as: :hidden %>
+          </div>
+          <div class="form-actions">
+          <%= f.button :submit, 'Create listing' , class: "btn btn-primary mb-2", style: "width: 100%;" %>
+          </div>
+        </div>
+      <% end %>
   </div>
-<% end %>
+</div>
+
+<%= render 'shared/footer' %>
