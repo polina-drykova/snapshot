@@ -1,5 +1,5 @@
 class CamerasController < ApplicationController
-before_action :set_camera, only: [:index, :show, :edit, :update, :destroy]
+before_action :set_camera, only: [:show, :edit, :update, :destroy]
 
   def index
     @cameras = Camera.all
@@ -11,6 +11,7 @@ before_action :set_camera, only: [:index, :show, :edit, :update, :destroy]
 
   def create
     @camera = Camera.new(camera_params)
+    @camera.user = current_user
     if @camera.save
       redirect_to camera_path(@camera)
     else
@@ -25,13 +26,13 @@ before_action :set_camera, only: [:index, :show, :edit, :update, :destroy]
   end
 
   def update
-    @camera.update(@camera_params)
-    redirect_to camera_show_path(@camera)
+    @camera.update(camera_params)
+    redirect_to camera_path(@camera)
   end
 
   def destroy
     @camera.destroy
-    redirect_to cameras_index_path
+    redirect_to cameras_path
   end
 
   def set_camera
@@ -39,7 +40,7 @@ before_action :set_camera, only: [:index, :show, :edit, :update, :destroy]
   end
 
   def camera_params
-    params.require(:camera).permit(:name, :address, :description, :policies, :price_per_day, :user_id, :photo)
+    params.require(:camera).permit(:name, :address, :description, :policies, :price_per_day, :photo)
   end
 
 end
