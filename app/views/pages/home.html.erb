@@ -1,15 +1,11 @@
 <div class="banner d-flex align-items-end justify-content-center flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.01),rgba(0,0,0,0.01)), url('assets/bg1.jpeg');">
 
     <!-- navbar integrate later -->
-    <div class="bg-transparent mt-4">
-      <p>logo</p>
-      <p>login</p>
-    </div>
     <!-- buttons bundle -->
     <div class="buttons-bundle">
-      <%= link_to 'Search', root_path, class: "button-flat mx-3" %>
+      <%= link_to 'Search',  cameras_path, class: "button-flat mx-3" %>
       <p class="text-center m-2"> Or </p>
-      <%= link_to 'Share', root_path, class: "button-flat mx-3" %>
+      <%= link_to 'Share', new_camera_path, class: "button-flat mx-3" %>
     </div>
 
 
