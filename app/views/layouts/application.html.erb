@@ -12,58 +12,7 @@
   <body>
 <!-- Navbar -->
 
-<%= render 'shared/navbar' %>
-
-<%= yield %>
-
-<div class="footer-container">
-<div class="container" style="width: 800px">
-  <div class="row">
-
-    <div class="col-sm-4 footer-side text-center">
-        <div style="margin-top: 12px"><h4>Information</h4></div>
-        <div class="name-logo-container">
-          <div class="names-container">
-            <div class="footer-text text-center"><p>About</p></div>
-            <div class="footer-text text-center"><p>Contact<p></div>
-            <div class="footer-text text-center"><p>Terms and Conditions<p></div>
-              <div class="footer-text text-center"><p>Site Map<p></div>
-          </div>
-      </div>
-      </div>
-
-      <div class="col-sm-4 footer-side align-middle">
-        <div class="logo-section">
-        <div class="footer-links">
-          <a style="font-size: 36px" href="#"><i class="fab fa-instagram"></i></a>
-          <a style="font-size: 36px" href="#"><i class="fab fa-facebook"></i></a>
-          <a style="font-size: 36px" href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-        </div>
-     </div>
-
-
-    <div class="col-sm-4 footer-side text-center">
-        <div style="margin-top: 12px"><h4>Colloborators</h4></div>
-        <div class="name-logo-container text-justify">
-          <div class="names-container">
-            <div class="footer-text"><p>Polina Drykova</p></div>
-            <div class="footer-text"><p>Eric Reale<p></div>
-            <div class="footer-text"><p>Sacha Mestdagh</p></div>
-            <div class="footer-text"><p>Sebastian Langer</p></div>
-          </div>
-
-          <div class="github-logo-container">
-            <p><a class="footer-link-size" href="#"><i class="fab fa-github"></i></a></p>
-            <p><a class="footer-link-size" href="#"><i class="fab fa-github"></i></a></p>
-            <p><a class="footer-link-size" href="#"><i class="fab fa-github"></i></a></p>
-            <p><a class="footer-link-size" href="#"><i class="fab fa-github"></i></a></p>
-          </div>
-      </div>
-      </div>
-</div>
-</div>
-</div>
+  <%= yield %>
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
