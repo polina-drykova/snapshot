@@ -6,15 +6,17 @@
 
       <%= simple_form_for(@camera) do |f| %>
 
+      <div class="form-inputs align-items-center m-auto pt-3 " style="width: 75%;">
       <% if @camera.errors.any? %>
-      <div class="errors-container">
-        <ul>
+      <div class="errors-container" style="color: red;">
+        <tr>
           <% @camera.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <td> <p> <%= message %></td> *</p>
           <% end %>
-        </ul>
+        </tr>
       </div>
       <% end %>
+    </div>
 
 
         <div class="form-inputs align-items-center m-auto pt-3 " style="width: 75%;">
@@ -37,7 +39,7 @@
           <%= f.input :price_per_day,
                     label: false,
                     placeholder: 'Price per day' %>
-          <hr class="mx-auto my-3" style="width: 75%;">
+          <hr class="mx-auto mt-4 mb-3" style="width: 75%;">
           <div class="mx-auto my-3" style="width: 50%;">
           <%= f.input :photo,
                     label: false %>
