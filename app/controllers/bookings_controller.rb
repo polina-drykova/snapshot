@@ -24,16 +24,16 @@ class BookingsController < ApplicationController
   end
 
   def update
-    set_booking
-    @booking.status = "Pending owner validation"
-    booking.save!
-    redirect_to booking_path(@booking)
+    # set_booking
+    # @booking.status = "Pending owner validation"
+    # booking.save!
+    # redirect_to booking_path(@booking)
   end
 
   def destroy
     set_booking
     @booking.destroy
-    redirect_to bookings_index_path
+    redirect_to camera_bookings_path
   end
 
   private
