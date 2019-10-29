@@ -114,7 +114,7 @@ cameras_attributes = [
     policies:       policies,
     price_per_day:  price_per_day,
     photo:          '../app/assets/images/cameraphoto.jpeg',
-    user_id:        1
+    user_id:        2
   },
     {
     name:           'Canon PowerShot G3X',
@@ -123,7 +123,7 @@ cameras_attributes = [
     policies:       policies,
     price_per_day:  price_per_day,
     photo:          '../app/assets/images/cameraphoto.jpeg',
-    user_id:        1
+    user_id:        2
   },
     {
     name:           'Sony RX100 IV',

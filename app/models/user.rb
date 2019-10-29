@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cameras, dependent: :destroy
-  has_many :bookings
-  has_many :reviews, through: :bookings
+
+  has_many :customer_bookings, foreign_key: 'user_id', class_name: "Booking"
+  has_many :owner_bookings, through: :cameras, foreign_key: 'user_id', source: 'user', class_name: 'Booking', dependent: :destroy
+
+  has_many :reviews, through: :customer_bookings
 end
