@@ -28,7 +28,6 @@
             <span><%= @camera.price_per_day %> </span> $/Days
           </div>
           <div class="description">
-            <h3>Camera features</h3>
               <span>
               <p><strong> Description</strong></p>
               <p> <%= @camera.description %> </p>
@@ -42,8 +41,7 @@
               <p><%= @camera.policies %></p>
               </span>
           </div>
-          <%= link_to "Add another camera", new_camera_path(@camera), :class => "buy--btn" %>
-          <%= link_to "home", cameras_path(@cameras), :class => "buy--btn" %>
+
         </div>
       </section>
   </div>
