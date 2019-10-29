@@ -26,7 +26,7 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
   end
 
   def update
-    @camera.update(@camera_params)
+    @camera.update(camera_params)
     redirect_to camera_path(@camera)
   end
 
