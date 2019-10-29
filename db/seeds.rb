@@ -66,8 +66,8 @@ User.create(user_attributes)
 description = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
 policies = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
 price_per_day = (rand(50..150))
-email = Faker::Internet.email
-password = Faker::Beer.brand
+# email = Faker::Internet.email
+# password = Faker::Beer.brand
 
 puts 'Creating cameras...'
 cameras_attributes = [
@@ -78,7 +78,7 @@ cameras_attributes = [
     policies:       policies,
     price_per_day:  price_per_day,
     photo:          '../app/assets/images/cameraphoto.jpeg',
-    user: User.all.sample
+    user_id:        1
   },
   {
     name:           'Canon Powershot Elph 190is',
@@ -87,7 +87,7 @@ cameras_attributes = [
     policies:       policies,
     price_per_day:  price_per_day,
     photo:          '../app/assets/images/cameraphoto.jpeg',
-    user: User.all.sample
+    user_id:        1
   },
   {
     name:           'Canon Powershot SX540',
@@ -96,7 +96,7 @@ cameras_attributes = [
     policies:       policies,
     price_per_day:  price_per_day,
     photo:          '../app/assets/images/cameraphoto.jpeg',
-    user: User.all.sample
+    user_id:        1
   },
   {
     name:           'Panasonic Lumix ZS50',
@@ -105,7 +105,7 @@ cameras_attributes = [
     policies:       policies,
     price_per_day:  price_per_day,
     photo:          '../app/assets/images/cameraphoto.jpeg',
-    user: User.all.sample
+    user_id:        1
   },
   {
     name:           'Olympus Stylus 1s',
@@ -114,7 +114,7 @@ cameras_attributes = [
     policies:       policies,
     price_per_day:  price_per_day,
     photo:          '../app/assets/images/cameraphoto.jpeg',
-    user: User.all.sample
+    user_id:        1
   },
     {
     name:           'Canon PowerShot G3X',
@@ -123,7 +123,7 @@ cameras_attributes = [
     policies:       policies,
     price_per_day:  price_per_day,
     photo:          '../app/assets/images/cameraphoto.jpeg',
-    user: User.all.sample
+    user_id:        1
   },
     {
     name:           'Sony RX100 IV',
@@ -132,7 +132,7 @@ cameras_attributes = [
     policies:       policies,
     price_per_day:  price_per_day,
     photo:          '../app/assets/images/cameraphoto.jpeg',
-    user: User.all.sample
+    user_id:        1
   },
     {
     name:           'Nikon Coolpix AW130',
@@ -141,7 +141,7 @@ cameras_attributes = [
     policies:       policies,
     price_per_day:  price_per_day,
     photo:          '../app/assets/images/cameraphoto.jpeg',
-    user: User.all.sample
+    user_id:        1
   },
     {
     name:           'Olympus TG-870',
@@ -150,7 +150,7 @@ cameras_attributes = [
     policies:       policies,
     price_per_day:  price_per_day,
     photo:          '../app/assets/images/cameraphoto.jpeg',
-    user: User.all.sample
+    user_id:        1
   },
     {
     name:           'Canon EOS Rebel T6i',
@@ -159,9 +159,8 @@ cameras_attributes = [
     policies:       policies,
     price_per_day:  price_per_day,
     photo:          '../app/assets/images/cameraphoto.jpeg',
-    user: User.all.sample
+    user_id:        1
   },
 ]
 Camera.create!(cameras_attributes)
 puts 'Cameras are finished!'
-
