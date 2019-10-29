@@ -16,10 +16,18 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 0;
-  height: 800px;
-  position: relative;
-  width: 100%;
+   height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-bottom: 0;
+  p {
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 3px;
+    opacity: 0.9;
+  }
 }
 
 .bg-transparent {
@@ -40,10 +48,15 @@
   display: flex;
   // flex-direction: column;
   justify-content: center;
-  width: 850px;
     p {
       color: white;
     }
+}
+
+@media only screen and (max-width: 600px) {
+ .buttons-bundle {
+  flex-direction: column;
+ }
 }
 
 .button-flat {
