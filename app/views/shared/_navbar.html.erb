@@ -1,5 +1,8 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to image_tag("snapshot_logo.png"), root_path, class: "navbar-brand" %>
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-5">
+
+
+  <%= link_to image_tag("snapshot_logo2.png"), root_path, class: "navbar-brand py-0 mx-5" %>
 
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,7 +10,7 @@
   </button>
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse  mx-5" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
@@ -17,7 +20,7 @@
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://images.unsplash.com/photo-1547679904-ac76451d1594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "girl2.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Action", "#", class: "dropdown-item" %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>
@@ -25,7 +28,7 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item">
+        <li class="nav-item mx-5">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>

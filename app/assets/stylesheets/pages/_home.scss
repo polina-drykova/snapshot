@@ -1,4 +1,18 @@
 // Specific CSS for your home-page
+.navbar-lewagon2 {
+  justify-content: space-between;
+  background: transparent;
+}
+
+.navbar-lewagon2 .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon2 .navbar-brand img {
+  width: 60px;
+  padding: 0;
+}
+
 .banner {
   background-size: cover;
   background-position: center;
