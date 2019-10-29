@@ -10,7 +10,7 @@
   </button>
 
 
-  <div class="collapse navbar-collapse mx-5" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse mx-3" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
@@ -28,7 +28,7 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item mx-5">
+        <li class="nav-item mx-3">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
