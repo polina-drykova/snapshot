@@ -11,6 +11,58 @@
 
 require 'faker'
 
+puts 'Creating users...'
+user_attributes = [
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+]
+
+User.create(user_attributes)
+
+
+
 description = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
 policies = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
 price_per_day = (rand(50..150))
@@ -112,53 +164,3 @@ cameras_attributes = [
 ]
 Camera.create!(cameras_attributes)
 puts 'Cameras are finished!'
-
-# puts 'Creating users...'
-# user_attributes = [
-#   {
-#     email:       email,
-#     password:    password,
-# },
-#   {
-#     email:       email,
-#     password:    password,
-# },
-#   {
-#     email:       email,
-#     password:    password,
-# },
-#   {
-#     email:       email,
-#     password:    password,
-# },
-#   {
-#     email:       email,
-#     password:    password,
-# },
-#   {
-#     email:       email,
-#     password:    password,
-# },
-#   {
-#     email:       email,
-#     password:    password,
-# },
-#   {
-#     email:       email,
-#     password:    password,
-# },
-#   {
-#     email:       email,
-#     password:    password,
-# },
-#   {
-#     email:       email,
-#     password:    password,
-# },
-#   {
-#     email:       email,
-#     password:    password,
-# },
-# ]
-
-
