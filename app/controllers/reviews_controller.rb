@@ -8,9 +8,14 @@ class ReviewsController < ApplicationController
   def create
     review = Review.new(review_params)
     @review.booking = @booking
-    review.save
-    redirect_to camera_booking_path
+    if review.save
+      redirect_to camera_path
+    else
+      render :new
+    end
   end
+
+  private
 
   def set_booking
     @booking = Booking.find(params[:booking_id])
