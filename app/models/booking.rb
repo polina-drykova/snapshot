@@ -3,8 +3,16 @@ class Booking < ApplicationRecord
   belongs_to :camera
   has_one :review
 
-  validates :rental_date, :return_date, :total_price, :service_fee, presence: true
+  validates :rental_date, :return_date, presence: true
   validate :check_date
+  after_create :set_total_price
+
+  def set_total_price
+   self.total_price = ( (self.return_date - self.rental_date).to_i + 1 ) * self.camera.price_per_day
+   self.service_fee = (0.05 * self.total_price)
+   self.save
+  end
+
 
   def check_date
     if return_date.nil? || rental_date.nil?

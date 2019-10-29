@@ -1,4 +1,4 @@
-<h1>here are all cameras</h1>
+<h1>Booking Overwiew</h1>
 
 <p>
   <span id="banner-typed-text"></span>
@@ -6,22 +6,20 @@
 
 <!-- CARDS -->
 <div id="card-countainer">
-  <% @cameras.each do |camera| %>
+  <% @bookings.each do |booking| %>
     <div class="frame">
-        <div class="namecamera">
-         <%= camera.name %>
+        <div class="bookingdates">
+        <h3>Rental Date</h3>
+         <%= booking.rental_date %>
+         <h3>Return Date</h3>
+         <strong><%= booking.return_date %></strong>
         </div>
-
-         <div class="camera-description">
-         <%= camera.address %>
-         <%= camera.description %>
-         </div>
 
          <div class="camera-price">
-         <%= camera.price_per_day %>
+         <p>Total Price</p>
+         <%= booking.service_fee%><p>% $</p>
+         <%= booking.total_price %><p>$</p>
         </div>
-     </div>
+    </div>
+  <% end %>
 </div>
-
-
-<br>
