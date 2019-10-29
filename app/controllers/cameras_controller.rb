@@ -35,6 +35,8 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
     redirect_to cameras_path
   end
 
+  private
+
   def set_camera
     @camera = Camera.find(params[:id])
   end
