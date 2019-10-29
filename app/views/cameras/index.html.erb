@@ -1,9 +1,9 @@
-
+<% count = Camera.count %>
 
 <!-- HTML for card to be displayed on index page -->
 <div class="container container-index" >
   <div class="row">
-    <h3 class="col-12 text-justify index-header"><strong>#+ cameras & equipment are available close to you.</strong></h1>
+    <h3 class="col-12 text-justify index-header"><strong><%= count %>+ cameras & equipment are available close to you.</strong></h1>
   </div>
 
   <div class="row">
@@ -20,114 +20,23 @@
 
 <div class="row">
     <div class="col-lg-8">
+
+      <% @cameras.each do |c| %>
       <div class="card-product">
         <img src="https://images.unsplash.com/photo-1547679904-ac76451d1594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
         <div class="card-product-infos">
           <div class="card-top-line">
-          <h2>Camera name</h2>
+          <h2> <%= c.name  %></h2>
           <h2><i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i></h2>
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p> <%= c.description %></p>
           <div class="card-bottom-line">
-            <h2>$99</h2>
+            <h2>$<%= c.price_per_day %></h2>
           </div>
         </div>
       </div>
-
-      <div class="card-product">
-        <img src="https://images.unsplash.com/photo-1547679904-ac76451d1594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
-        <div class="card-product-infos">
-          <div class="card-top-line">
-          <h2>Camera name</h2>
-          <h2><i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i></h2>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="card-bottom-line">
-            <h2>$99</h2>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="card-product">
-        <img src="https://images.unsplash.com/photo-1547679904-ac76451d1594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
-        <div class="card-product-infos">
-          <div class="card-top-line">
-          <h2>Camera name</h2>
-          <h2><i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i></h2>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="card-bottom-line">
-            <h2>$99</h2>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="card-product">
-        <img src="https://images.unsplash.com/photo-1547679904-ac76451d1594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
-        <div class="card-product-infos">
-          <div class="card-top-line">
-          <h2>Camera name</h2>
-          <h2><i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i></h2>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="card-bottom-line">
-            <h2>$99</h2>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="card-product">
-        <img src="https://images.unsplash.com/photo-1547679904-ac76451d1594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
-        <div class="card-product-infos">
-          <div class="card-top-line">
-          <h2>Camera name</h2>
-          <h2><i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i></h2>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="card-bottom-line">
-            <h2>$99</h2>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="card-product">
-        <img src="https://images.unsplash.com/photo-1547679904-ac76451d1594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
-        <div class="card-product-infos">
-          <div class="card-top-line">
-          <h2>Camera name</h2>
-          <h2><i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i></h2>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="card-bottom-line">
-            <h2>$99</h2>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="card-product">
-        <img src="https://images.unsplash.com/photo-1547679904-ac76451d1594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" />
-        <div class="card-product-infos">
-          <div class="card-top-line">
-          <h2>Camera name</h2>
-          <h2><i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i></h2>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="card-bottom-line">
-            <h2>$99</h2>
-          </div>
-        </div>
-      </div>
-  </div>
+      <% end %>
+    </div>
 
      <div class="col-sm-4 text-center map">
        <h1>MAP</h1>
@@ -135,4 +44,3 @@
 
   </div>
 </div>
-
