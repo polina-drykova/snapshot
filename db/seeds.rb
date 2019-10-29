@@ -14,8 +14,8 @@ require 'faker'
 description = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
 policies = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
 price_per_day = (rand(50..150))
-email = Faker::Internet.email
-password = Faker::Beer.brand
+# email = Faker::Internet.email
+# password = Faker::Beer.brand
 
 puts 'Creating cameras...'
 cameras_attributes = [
@@ -103,52 +103,52 @@ cameras_attributes = [
 Camera.create!(cameras_attributes)
 puts 'Cameras are finished!'
 
-puts 'Creating users...'
-user_attributes = [
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-]
+# puts 'Creating users...'
+# user_attributes = [
+#   {
+#     email:       email,
+#     password:    password,
+# },
+#   {
+#     email:       email,
+#     password:    password,
+# },
+#   {
+#     email:       email,
+#     password:    password,
+# },
+#   {
+#     email:       email,
+#     password:    password,
+# },
+#   {
+#     email:       email,
+#     password:    password,
+# },
+#   {
+#     email:       email,
+#     password:    password,
+# },
+#   {
+#     email:       email,
+#     password:    password,
+# },
+#   {
+#     email:       email,
+#     password:    password,
+# },
+#   {
+#     email:       email,
+#     password:    password,
+# },
+#   {
+#     email:       email,
+#     password:    password,
+# },
+#   {
+#     email:       email,
+#     password:    password,
+# },
+# ]
 
 
