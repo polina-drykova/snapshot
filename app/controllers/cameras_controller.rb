@@ -1,5 +1,5 @@
 class CamerasController < ApplicationController
-before_action :set_camera, only: [:index, :show, :edit, :update, :destroy]
+before_action :set_camera, only: [ :show, :edit, :update, :destroy]
 
   def index
     @cameras = Camera.all
