@@ -11,6 +11,58 @@
 
 require 'faker'
 
+puts 'Creating users...'
+user_attributes = [
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+  {
+    email:      Faker::Internet.email,
+    password:    'password'
+},
+]
+
+User.create(user_attributes)
+
+
+
 description = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
 policies = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
 price_per_day = (rand(50..150))
@@ -25,7 +77,8 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg'
+    photo:          '../app/assets/images/cameraphoto.jpeg',
+    user: User.all.sample
   },
   {
     name:           'Canon Powershot Elph 190is',
@@ -33,7 +86,8 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg'
+    photo:          '../app/assets/images/cameraphoto.jpeg',
+    user: User.all.sample
   },
   {
     name:           'Canon Powershot SX540',
@@ -41,7 +95,8 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg'
+    photo:          '../app/assets/images/cameraphoto.jpeg',
+    user: User.all.sample
   },
   {
     name:           'Panasonic Lumix ZS50',
@@ -49,7 +104,8 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg'
+    photo:          '../app/assets/images/cameraphoto.jpeg',
+    user: User.all.sample
   },
   {
     name:           'Olympus Stylus 1s',
@@ -57,7 +113,8 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg'
+    photo:          '../app/assets/images/cameraphoto.jpeg',
+    user: User.all.sample
   },
     {
     name:           'Canon PowerShot G3X',
@@ -65,7 +122,8 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg'
+    photo:          '../app/assets/images/cameraphoto.jpeg',
+    user: User.all.sample
   },
     {
     name:           'Sony RX100 IV',
@@ -73,7 +131,8 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg'
+    photo:          '../app/assets/images/cameraphoto.jpeg',
+    user: User.all.sample
   },
     {
     name:           'Nikon Coolpix AW130',
@@ -81,7 +140,8 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg'
+    photo:          '../app/assets/images/cameraphoto.jpeg',
+    user: User.all.sample
   },
     {
     name:           'Olympus TG-870',
@@ -89,7 +149,8 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg'
+    photo:          '../app/assets/images/cameraphoto.jpeg',
+    user: User.all.sample
   },
     {
     name:           'Canon EOS Rebel T6i',
@@ -97,58 +158,10 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg'
+    photo:          '../app/assets/images/cameraphoto.jpeg',
+    user: User.all.sample
   },
 ]
 Camera.create!(cameras_attributes)
 puts 'Cameras are finished!'
-
-puts 'Creating users...'
-user_attributes = [
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-  {
-    email:       email,
-    password:    password,
-},
-]
-
 
