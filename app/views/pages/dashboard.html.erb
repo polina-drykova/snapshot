@@ -1,10 +1,30 @@
-<%= current_user.customer_bookings.first.return_date %>
-<%= current_user.customer_bookings.first.camera.name %>
+<%= render 'shared/navbar' %>
 
-<%= current_user.customer_bookings.each do |b|  %>
-  <%=  b.camera.name %>
-  <% end %>
+<div class = "container">
+  <div class="row">
+    <div class="col-lg-8">
+
+      <% current_user.customer_bookings.each do |b| %>
+        <div class="card-product">
+         <%= link_to camera_booking_path(b.camera, b), :class => "text-cards" do %>
+        <%= cl_image_tag b.camera.photo, height: 300, width: 400, crop: :fill %>
+          <div class="card-product-infos">
+            <div class="card-top-line">
+                <h2><%=  b.camera.name %> </h2>
+                </div>
+                <p> Start date: <%= b.rental_date %> </p>
+                <p> Return date: <%= b.return_date %> </p>
+              <div class="card-bottom-line">
+              <h2> Total Price: <%= ((((-(b.rental_date - b.return_date))).to_i )* b.camera.price_per_day) + (((((-(b.rental_date - b.return_date))).to_i )* b.camera.price_per_day)*0.02)%> $</h2>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
-<%= current_user.owner_bookings.first.return_date %>
-<%= current_user.owner_bookings.first.camera.name %>
+
+<%= render 'shared/footer' %>
