@@ -29,3 +29,19 @@
 
     }
 }
+
+.link-color {
+  color: #31d843;
+    &:hover {
+      color: #6AD875;
+      text-decoration: none;
+    }
+}
+
+.link-standart {
+  color: gray;
+    &:hover {
+      color: #6AD875;
+      text-decoration: none;
+    }
+}

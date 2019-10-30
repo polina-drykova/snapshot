@@ -30,6 +30,7 @@
               </div>
               <% end %>
 
+
               <div id='cameras-booking-dates' data-unavailable="<%= @camera.unavailable_dates.to_json %>">
                   <% if current_user != @camera.user  %>
                      <%= simple_form_for([@camera, @booking]) do |f| %>
