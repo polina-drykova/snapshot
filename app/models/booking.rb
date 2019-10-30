@@ -18,7 +18,7 @@ class Booking < ApplicationRecord
 
   def set_total_price
    self.total_price = ( (self.return_date - self.rental_date).to_i + 1 ) * self.camera.price_per_day
-   self.service_fee = (0.05 * self.total_price)
+   self.service_fee = (0.02 * self.total_price)
    self.save
   end
 end
