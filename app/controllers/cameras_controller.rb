@@ -14,7 +14,8 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
       {
         lat: camera.latitude,
         lng: camera.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { camera: camera } )
+        infoWindow: render_to_string(partial: "info_window", locals: { camera: camera } ),
+        image_url: helpers.asset_url('https://image.flaticon.com/icons/svg/149/149641.svg')
       }
     end
   end
