@@ -1,4 +1,5 @@
 class CamerasController < ApplicationController
+before_action :authenticate_user!, except: [:index, :show]
 before_action :set_camera, only: [:show, :edit, :update, :destroy]
 
   def index
