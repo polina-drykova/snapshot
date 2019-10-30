@@ -35,11 +35,8 @@ require 'faker'
   },
  ]
 
-User.create(user_attributes)
 
-    remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
-    about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
-},
+
 #   {
 #     email:      Faker::Internet.email,
 #     password:    'password'
@@ -48,7 +45,7 @@ User.create(user_attributes)
 #     email:      Faker::Internet.email,
 #     password:    'password'
 # },
-]
+
 
 User.create(user_attributes)
 

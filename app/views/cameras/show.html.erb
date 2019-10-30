@@ -3,7 +3,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 py-3">
                       <div class="title">
                 <h1> <span id="left"><%= @camera.name %></span>
                           <span id="right"> <%= link_to edit_camera_path(@camera), :class => "icons-show" do %>
@@ -17,7 +17,7 @@
         <div class="class=rounded mx-auto d-block p-2">
           <%= cl_image_tag @camera.photo, height: 300, style: "width:100%" , crop: :fill %>
         </div>
-              <div class="bookings-container ml-auto p-2">
+              <div class="bookings-container ml-auto p-3 mb-4">
               <h3><strong>Book this camera now</strong></h3>
 
               <% if @booking.errors.any? %>
@@ -45,7 +45,7 @@
               </div>
             </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 py-3">
         <h5 class="pt-2">
          <% if @camera.previous_camera %>
           <%= link_to 'previous', camera_path(@camera.previous_camera) %>
