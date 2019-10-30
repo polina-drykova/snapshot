@@ -6,34 +6,34 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#puts 'Cleaning database...'
-#Camera.destroy_all
+puts 'Cleaning database...'
+Camera.destroy_all
 
+puts 'Creating users...'
+user_attributes = [
+  {
+    email:      'polina@gmail.com',
+    password:    '1234567',
+    name: 'Polina',
+    address: "Canggu, Bali",
+    remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
+    about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+},
+#   {
+#     email:      Faker::Internet.email,
+#     password:    'password'
+# },
+#   {
+#     email:      Faker::Internet.email,
+#     password:    'password'
+# },
+]
+
+User.create(user_attributes)
 
 require 'faker'
 
-# puts 'Creating users...'
-# user_attributes = [
-#   {
-#     email:      Faker::Internet.email,
-#     password:    'password'
-# },
-#   {
-#     email:      Faker::Internet.email,
-#     password:    'password'
-# },
-#   {
-#     email:      Faker::Internet.email,
-#     password:    'password'
-# },
-#   {
-#     email:      Faker::Internet.email,
-#     password:    'password'
-# },
-# ]
-#
-# User.create(user_attributes)
-#
+
 
 
 description = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
@@ -41,6 +41,7 @@ policies = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
 price_per_day = (rand(50..150))
 # email = Faker::Internet.email
 # password = Faker::Beer.brand
+
 
 puts 'Creating listings...'
 cameras_attributes = [
