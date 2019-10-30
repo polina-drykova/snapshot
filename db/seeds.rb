@@ -72,12 +72,12 @@ price_per_day = (rand(50..150))
 puts 'Creating cameras...'
 cameras_attributes = [
   {
-    name:           'Nikon Coolpix A300',
+    name:           'Beauty dish',
     address:        Faker::Address.full_address,
-    description:    description,
-    policies:       policies,
-    price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg',
+    description:    'Small reflector used primarily for close-up lighting of female faces to increase light fallout while retaining softness.',
+    policies:       'Deposit $5',
+    price_per_day:  5,
+    photo:          '../app/assets/images/beauty_dish.jpeg',
     user_id:        1
   },
   {
@@ -85,71 +85,71 @@ cameras_attributes = [
     address:        Faker::Address.full_address,
     description:    description,
     policies:       policies,
-    price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg',
+    price_per_day:  10,
+    photo:          '../app/assets/images/camera.jpeg',
     user_id:        1
   },
   {
-    name:           'Canon Powershot SX540',
+    name:           'Kleig light',
+    address:        Faker::Address.full_address,
+    description:    description,
+    policies:       policies,
+    price_per_day:  13,
+    photo:          '../app/assets/images/kleig light.jpeg',
+    user_id:        1
+  },
+  {
+    name:           'Photo studio set',
     address:        Faker::Address.full_address,
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg',
+    photo:          '../app/assets/images/photo-studio-set.jpeg',
     user_id:        1
   },
   {
-    name:           'Panasonic Lumix ZS50',
+    name:           'Canon lens',
     address:        Faker::Address.full_address,
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg',
-    user_id:        1
-  },
-  {
-    name:           'Olympus Stylus 1s',
-    address:        Faker::Address.full_address,
-    description:    description,
-    policies:       policies,
-    price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg',
+    photo:          '../app/assets/images/canon_lens.jpeg',
     user_id:        2
   },
     {
-    name:           'Canon PowerShot G3X',
+    name:           'Camera bag',
     address:        Faker::Address.full_address,
     description:    description,
     policies:       policies,
-    price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg',
+    price_per_day:  2,
+    photo:          '../app/assets/images/camera_bag.jpeg',
     user_id:        2
   },
     {
-    name:           'Sony RX100 IV',
+    name:           'Godox S-Type bracket Bowens mount',
     address:        Faker::Address.full_address,
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg',
+    photo:          '../app/assets/images/Godox S-Type bracket Bowens mount.jpeg',
     user_id:        1
   },
     {
-    name:           'Nikon Coolpix AW130',
+    name:           'Lens',
     address:        Faker::Address.full_address,
     description:    description,
     policies:       policies,
-    price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg',
+    price_per_day:  6,
+    photo:          '../app/assets/images/lens.jpeg',
     user_id:        1
   },
     {
-    name:           'Olympus TG-870',
+    name:           'Red Flare',
     address:        Faker::Address.full_address,
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg',
+    photo:          '../app/assets/images/red_flare.jpeg',
     user_id:        1
   },
     {
@@ -158,7 +158,7 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/cameraphoto.jpeg',
+    photo:          '../app/assets/images/canon.jpeg',
     user_id:        1
   },
 ]
