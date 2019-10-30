@@ -17,3 +17,15 @@
   border: 2px solid #31d843;
 }
 
+.button-color {
+  background-color: #31d843;
+  border: 2px solid #31d843;
+  color: white;
+  transition: 0.5s ease;
+    &:hover {
+      background-color: #6AD875;
+      border: 2px solid #6AD875;
+      color: white;
+
+    }
+}
