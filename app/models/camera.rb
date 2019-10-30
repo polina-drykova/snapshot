@@ -15,4 +15,14 @@ class Camera < ApplicationRecord
       { from: range[0], to: range[1] }
     end
   end
+
+def previous_camera
+  Camera.where(["id < ?", self.id]).last
 end
+
+def next_camera
+  Camera.where(["id > ?", self.id]).first
+end
+
+end
+
