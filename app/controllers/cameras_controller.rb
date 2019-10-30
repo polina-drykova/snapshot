@@ -23,6 +23,7 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @booking = Booking.new
   end
 
   def edit

@@ -38,19 +38,20 @@
             <div class="bookings-container ml-auto p-2">
                     <h3><strong>Book this camera now</strong></h3>
 
-                    <% if @booking.errors.any? %>
-                    <div class="errors-container">
-                      <ul>
-                        <% @booking.errors.full_messages.each do |message| %>
-                          <li><%= message %></li>
-                        <% end %>
-                      </ul>
-                    </div>
-                    <% end %>
 
                     <div id='cameras-booking-dates' data-unavailable="<%= @camera.unavailable_dates.to_json %>">
                         <% if current_user != @camera.user  %>
                            <%= simple_form_for([@camera, @booking]) do |f| %>
+                              <% if @booking.errors.any? %>
+                                <div class="errors-container">
+                                  <ul>
+                                    <% @booking.errors.full_messages.each do |message| %>
+                                      <li><%= message %></li>
+                                    <% end %>
+                                  </ul>
+                                </div>
+                                <% end %>
+
                                <%= f.input :rental_date, html5: true %>
                                <%= f.input :return_date, html5: true %>
                                <div id="booking-price">
