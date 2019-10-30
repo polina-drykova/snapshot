@@ -6,60 +6,33 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# puts 'Cleaning database...'
-# Camera.destroy_all
-
-require 'faker'
+puts 'Cleaning database...'
+Camera.destroy_all
 
 puts 'Creating users...'
 user_attributes = [
   {
-    email:      Faker::Internet.email,
-    password:    'password'
+    email:      'polina@gmail.com',
+    password:    '1234567',
+    name: 'Polina',
+    address: "Canggu, Bali",
+    remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
+    about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
 },
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
+#   {
+#     email:      Faker::Internet.email,
+#     password:    'password'
+# },
+#   {
+#     email:      Faker::Internet.email,
+#     password:    'password'
+# },
 ]
 
 User.create(user_attributes)
+
+require 'faker'
+
 
 
 
@@ -69,11 +42,12 @@ price_per_day = (rand(50..150))
 # email = Faker::Internet.email
 # password = Faker::Beer.brand
 
+
 puts 'Creating listings...'
 cameras_attributes = [
   {
     name:           'Beauty dish',
-    address:        Faker::Address.full_address,
+    address:        '1300 Kenyon Street Northwest, Washington, District of Columbia, United States of America',
     description:    'Small reflector used primarily for close-up lighting of female faces to increase light fallout while retaining softness.',
     policies:       'Deposit $5',
     price_per_day:  5,
@@ -82,7 +56,7 @@ cameras_attributes = [
   },
   {
     name:           'Canon Powershot Elph 190is',
-    address:        Faker::Address.full_address,
+    address:        '1600 Pennsylvania Avenue, Washington, District of Columbia',
     description:    description,
     policies:       policies,
     price_per_day:  10,
@@ -91,7 +65,7 @@ cameras_attributes = [
   },
   {
     name:           'Kleig light',
-    address:        Faker::Address.full_address,
+    address:        '1200 Girard Street Northeast, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
     price_per_day:  13,
@@ -100,7 +74,7 @@ cameras_attributes = [
   },
   {
     name:           'Photo studio set',
-    address:        Faker::Address.full_address,
+    address:        '1345 Riggs Street NW, Washington DC',
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
@@ -109,7 +83,7 @@ cameras_attributes = [
   },
   {
     name:           'Canon lens',
-    address:        Faker::Address.full_address,
+    address:        '1200 Euclid Street Northwest, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
@@ -118,7 +92,7 @@ cameras_attributes = [
   },
     {
     name:           'Camera bag',
-    address:        Faker::Address.full_address,
+    address:        '1300 Irving Street Northeast, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
     price_per_day:  2,
@@ -127,7 +101,7 @@ cameras_attributes = [
   },
     {
     name:           'Godox S-Type bracket Bowens mount',
-    address:        Faker::Address.full_address,
+    address:        '500 K St SE, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
@@ -136,7 +110,7 @@ cameras_attributes = [
   },
     {
     name:           'Lens',
-    address:        Faker::Address.full_address,
+    address:        '500 L St SE, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
     price_per_day:  6,
@@ -145,7 +119,7 @@ cameras_attributes = [
   },
     {
     name:           'Red Flare',
-    address:        Faker::Address.full_address,
+    address:        '500 L St SE, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
@@ -154,7 +128,7 @@ cameras_attributes = [
   },
     {
     name:           'Canon EOS Rebel T6i',
-    address:        Faker::Address.full_address,
+    address:        '2228 18th St NW, Washington, DC 20009',
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,

@@ -4,7 +4,7 @@
 <!-- HTML for card to be displayed on index page -->
 <div class="container container-index" >
   <div class="row">
-    <h3 class="col-12 text-justify index-header"><strong><%= count %>+ cameras & equipment are available close to you.</strong></h1>
+    <h2 class="col-12 text-justify index-header"><strong><%= count %>+ cameras & photography equipment are available close to you.</strong></h2>
   </div>
 
   <div class="row">
@@ -17,7 +17,6 @@
     </div>
    </div>
   </div>
-
 
 
 <div class="row">
@@ -42,8 +41,14 @@
       <% end %>
     </div>
 
-     <div class="col-sm-4 text-center map">
-       <h1>MAP</h1>
+     <div class="col-sm-4 text-center">
+       <div
+          id="map";
+          style="width: 100%;
+          height: 600px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+       ></div>
      </div>
 
   </div>
