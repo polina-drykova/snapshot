@@ -9,4 +9,7 @@ class PagesController < ApplicationController
 
   def profile
   end
+  def error
+
+  end
 end
