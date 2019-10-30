@@ -12,15 +12,16 @@ if (returnDateInput){
 
     // getting pricec per day and converting to integer
     const pricePerDay = parseInt(document.querySelector(".price span").innerText)
-    const bookingTotal = numberOfDays * pricePerDay
-    const serviceFee = (bookingTotal * 0.02)
+    const bookingSubtotalTotal = numberOfDays * pricePerDay
+    const serviceFee = (bookingSubtotalTotal * 0.02)
+    const bookingTotal = bookingSubtotalTotal + serviceFee
 
     // showing the booking total in HTML
     const showBookingPrice = document.querySelector("#booking-price")
-    showBookingPrice.innerHTML = `numbers of days : ${numberOfDays} <br>
-                                  price per day : ${pricePerDay} $ <br>
-                                  service fee (2%) : ${serviceFee} $ <br>
-                                  your total is ${bookingTotal} $`
+    showBookingPrice.innerHTML = `Numbers of days : ${numberOfDays} <br>
+                                  Price per day : $${pricePerDay} <br>
+                                  Service fee (2%) : $${serviceFee} <br>
+                                  Your total is $${bookingTotal} `
     // showBookingPrice.style.display = "show"
   })
 }
