@@ -34,7 +34,6 @@ require 'faker'
   },
  ]
 
-User.create(user_attributes)
 
 
 #   {
