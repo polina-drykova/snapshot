@@ -1,4 +1,8 @@
 // Specific CSS for your home-page
+#banner {
+  background-image: linear-gradient(rgba(0,0,0,0.01),rgba(0,0,0,0.01)), image-url('bg1.jpg');
+}
+
 .navbar-lewagon2 {
   justify-content: space-between;
   background: transparent;
