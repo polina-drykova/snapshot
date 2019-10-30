@@ -1,48 +1,64 @@
 <%= render 'shared/navbar' %>
-  <div class="container">
-      <section class="product">
-        <div class="product__photo">
-          <div class="photo-container">
-            <div class="photo-main">
-              <div class="controls">
-                <i class="material-icons"></i>
-                <i class="material-icons"></i>
+  <div class="container d-flex">
+      <div class="d-flex align-items-stretch">
+            <div class="photo-container mr-auto p-2">
+                 <%= cl_image_tag @camera.photo, height: 300, width: 400, crop: :fill %>
               </div>
-              <%= cl_image_tag @camera.photo, height: 300, width: 400, crop: :fill %>
-            </div>
-          </div>
-        </div>
-        <div class="product__info">
-          <div class="title">
-            <h1> <span id="left"><%= @camera.name %></span>
-                      <span id="right"> <%= link_to edit_camera_path(@camera), :class => "icons-show" do %>
-                        <p class="fa fa-edit" id="edit-icons"></p>
+            <div class="product__info">
+              <div class="title">
+                <h1> <span id="left"><%= @camera.name %></span>
+                          <span id="right"> <%= link_to edit_camera_path(@camera), :class => "icons-show" do %>
+                            <p class="fa fa-edit" id="edit-icons"></p>
+                            <% end %>
+                          <%= link_to camera_path(@camera), :class => "icons-show", method: :delete, data: { confirm: 'Are you sure?' }  do %>
+                            <p class="fa fa-trash" id="edit-icons"></p> </span>
                         <% end %>
-                      <%= link_to camera_path(@camera), :class => "icons-show", method: :delete, data: { confirm: 'Are you sure?' }  do %>
-                        <p class="fa fa-trash" id="edit-icons"></p> </span>
-                    <% end %>
-            </h1>
-            <span> </span>
-          </div>
-          <div class="price">
-            <span><%= @camera.price_per_day %> </span> $/Days
-          </div>
-          <div class="description">
-              <span>
-              <p><strong> Description</strong></p>
-              <p> <%= @camera.description %> </p>
-              </span>
-              <span>
-              <p><strong>Address </strong></p>
-              <p><%= @camera.address %></p>
-              </span>
-              <span>
-              <p><strong>Policy </strong></p>
-              <p><%= @camera.policies %></p>
-              </span>
-          </div>
+              </div>
+              <div class="price">
+                <span><%= @camera.price_per_day %> </span> $/Days
+              </div>
+              <div class="description">
+                <h3>Camera features</h3>
+                  <span>
+                  <p><strong> Description</strong></p>
+                  <p> <%= @camera.description %> </p>
+                  </span>
+                  <span>
+                  <p><strong>Address </strong></p>
+                  <p><%= @camera.address %></p>
+                  </span>
+                  <span>
+                  <p><strong>Policy </strong></p>
+                  <p><%= @camera.policies %></p>
+                  </span>
+              </div>
+              <%= link_to "Add another camera", new_camera_path(@camera), :class => "buy--btn" %>
+              <%= link_to "home", cameras_path(@cameras), :class => "buy--btn" %>
+            </div>
+            <div class="bookings-container ml-auto p-2">
+                    <h3><strong>Book this camera now</strong></h3>
 
-        </div>
-      </section>
+                    <% if @booking.errors.any? %>
+                    <div class="errors-container">
+                      <ul>
+                        <% @booking.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                    <% end %>
+
+                    <div id='cameras-booking-dates' data-unavailable="<%= @camera.unavailable_dates.to_json %>">
+                        <% if current_user != @camera.user  %>
+                           <%= simple_form_for([@camera, @booking]) do |f| %>
+                              <h4> dates: </h4>
+                               <%= f.input :rental_date, html5: true %>
+                               <%= f.input :return_date, html5: true %>
+                               <%= f.submit "Book", class: "buy--btn" %>
+                            <% end %>
+                        <% end %>
+                    </div>
+            </div>
+       </div>
   </div>
 <%= render 'shared/footer' %>
