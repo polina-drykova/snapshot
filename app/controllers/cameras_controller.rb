@@ -4,6 +4,20 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
 
   def index
     @cameras = policy_scope(Camera).order(created_at: :desc)
+
+    # Instead of @cameras = Camera.geocoded
+    @cameras = @cameras.select  do |c|
+      c.latitude && c.longitude
+    end
+
+    @markers = @cameras.map do |camera|
+      {
+        lat: camera.latitude,
+        lng: camera.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { camera: camera } ),
+        image_url: helpers.asset_url('https://image.flaticon.com/icons/svg/149/149641.svg')
+      }
+    end
   end
 
   def new
@@ -23,6 +37,7 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @booking = Booking.new
   end
 
   def edit
