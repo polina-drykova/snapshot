@@ -7,7 +7,7 @@ class Camera < ApplicationRecord
   validates_numericality_of :price_per_day
   mount_uploader :photo, PhotoUploader
 
-  # geocoded_by :address
+  geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
  def unavailable_dates
