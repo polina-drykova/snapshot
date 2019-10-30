@@ -6,61 +6,34 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# puts 'Cleaning database...'
-# Camera.destroy_all
+#puts 'Cleaning database...'
+#Camera.destroy_all
+
 
 require 'faker'
 
-puts 'Creating users...'
-user_attributes = [
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-  {
-    email:      Faker::Internet.email,
-    password:    'password'
-},
-]
-
-User.create(user_attributes)
-
+# puts 'Creating users...'
+# user_attributes = [
+#   {
+#     email:      Faker::Internet.email,
+#     password:    'password'
+# },
+#   {
+#     email:      Faker::Internet.email,
+#     password:    'password'
+# },
+#   {
+#     email:      Faker::Internet.email,
+#     password:    'password'
+# },
+#   {
+#     email:      Faker::Internet.email,
+#     password:    'password'
+# },
+# ]
+#
+# User.create(user_attributes)
+#
 
 
 description = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
@@ -73,7 +46,7 @@ puts 'Creating listings...'
 cameras_attributes = [
   {
     name:           'Beauty dish',
-    address:        Faker::Address.full_address,
+    address:        '1300 Kenyon Street Northwest, Washington, District of Columbia, United States of America',
     description:    'Small reflector used primarily for close-up lighting of female faces to increase light fallout while retaining softness.',
     policies:       'Deposit $5',
     price_per_day:  5,
@@ -82,7 +55,7 @@ cameras_attributes = [
   },
   {
     name:           'Canon Powershot Elph 190is',
-    address:        Faker::Address.full_address,
+    address:        '1600 Pennsylvania Avenue, Washington, District of Columbia',
     description:    description,
     policies:       policies,
     price_per_day:  10,
@@ -91,7 +64,7 @@ cameras_attributes = [
   },
   {
     name:           'Kleig light',
-    address:        Faker::Address.full_address,
+    address:        '1200 Girard Street Northeast, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
     price_per_day:  13,
@@ -100,7 +73,7 @@ cameras_attributes = [
   },
   {
     name:           'Photo studio set',
-    address:        Faker::Address.full_address,
+    address:        '1345 Riggs Street NW, Washington DC',
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
@@ -109,7 +82,7 @@ cameras_attributes = [
   },
   {
     name:           'Canon lens',
-    address:        Faker::Address.full_address,
+    address:        '1200 Euclid Street Northwest, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
@@ -118,7 +91,7 @@ cameras_attributes = [
   },
     {
     name:           'Camera bag',
-    address:        Faker::Address.full_address,
+    address:        '1300 Irving Street Northeast, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
     price_per_day:  2,
@@ -127,7 +100,7 @@ cameras_attributes = [
   },
     {
     name:           'Godox S-Type bracket Bowens mount',
-    address:        Faker::Address.full_address,
+    address:        '500 K St SE, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
@@ -136,7 +109,7 @@ cameras_attributes = [
   },
     {
     name:           'Lens',
-    address:        Faker::Address.full_address,
+    address:        '500 L St SE, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
     price_per_day:  6,
@@ -145,7 +118,7 @@ cameras_attributes = [
   },
     {
     name:           'Red Flare',
-    address:        Faker::Address.full_address,
+    address:        '500 L St SE, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
@@ -154,7 +127,7 @@ cameras_attributes = [
   },
     {
     name:           'Canon EOS Rebel T6i',
-    address:        Faker::Address.full_address,
+    address:        '2228 18th St NW, Washington, DC 20009',
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
