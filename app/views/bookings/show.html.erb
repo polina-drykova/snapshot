@@ -1,4 +1,29 @@
 <%= render 'shared/navbar' %>
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+
+<div class="my-5">
+  <div class="card d-flex justify-content-center align-items-column m-auto py-4" style="width: 450px">
+    <h2 class="text-center ">Here is your quote</h2>
+      <div class="form-inputs m-auto pt-3 " style="width: 75%;">
+              <div class="frame">
+                  <div class="bookingdates">
+                  <h3>Rental Date</h3>
+                   <p class="text-center"><%= @booking.rental_date %></p>
+                   <h3>Return Date</h3>
+                   <p class="text-center"><%= @booking.return_date %></p>
+                  </div>
+                   <div class="camera-price">
+                   <h3>Total Price</h3>
+                    <p> numbers of days <%= ((-(@booking.rental_date - @booking.return_date))).to_i  %> </p>
+                    <p> * Price per day <%= @booking.camera.price_per_day %> </p>
+                    <p> +service fee <%= (((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day)*0.02)%>$</p>
+                    <p class="text-center">--------------<p>
+                    <p><strong> = total price <%= ((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day) + (((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day)*0.02) %>$ </strong></p>
+                    <p class="text-center">-----------------------------------------------------------<p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>
 <%= render 'shared/footer' %>

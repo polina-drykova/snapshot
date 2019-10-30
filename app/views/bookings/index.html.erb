@@ -16,11 +16,11 @@
                   </div>
                    <div class="camera-price">
                    <h3>Total Price</h3>
-                    <p> numbers of days <%= (booking.rental_date - booking.return_date).to_i  %> </p>
+                    <p> numbers of days <%= ((-(booking.rental_date - booking.return_date)) +1).to_i  %> </p>
                     <p> * Price per day <%= booking.camera.price_per_day %> </p>
                     <p> +service fee <%= booking.service_fee%>$</p>
                     <p class="text-center">--------------<p>
-                    <p><strong> = total price <%= booking.total_price %>$ </strong></p>
+                    <p><strong> = total price <%= booking.total_price + booking.service_fee %>$ </strong></p>
                     <p class="text-center">-----------------------------------------------------------<p>
                   </div>
               </div>
