@@ -9,13 +9,34 @@
 puts 'Cleaning database...'
 Camera.destroy_all
 
-puts 'Creating users...'
-user_attributes = [
+
+
+require 'faker'
+
+ puts 'Creating users...'
+ user_attributes = [
+
   {
     email:      'polina@gmail.com',
     password:    '1234567',
     name: 'Polina',
     address: "Canggu, Bali",
+
+  #  remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
+    about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+  },
+  {
+    email:      'eric@gmail.com',
+    password:    '1234567',
+    name: 'Eric',
+    address: "Canggu, Bali",
+   # remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
+    about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+  },
+ ]
+
+User.create(user_attributes)
+
     remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
     about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
 },
@@ -138,3 +159,27 @@ cameras_attributes = [
 ]
 Camera.create!(cameras_attributes)
 puts 'Listings are finished!'
+
+puts 'Creating bookings...'
+booking_attributes = [
+  {
+   rental_date:    Date.today,
+   return_date:    Date.today + 3,
+   total_price:    83,
+   service_fee:    5,
+   user_id:        1,
+   camera_id:      5
+  },
+    {
+   rental_date:    Date.today,
+   return_date:    Date.today + 5,
+   total_price:    101,
+   service_fee:    6,
+   user_id:        2,
+   camera_id:      3
+  },
+]
+Booking.create!(booking_attributes)
+puts 'Bookings are finished!'
+
+
