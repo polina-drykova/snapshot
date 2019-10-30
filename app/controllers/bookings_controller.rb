@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     # @booking.status = "Pending owner validation"
     if @booking.save
-      redirect_to camera_bookings_path
+      redirect_to camera_booking_path(@camera, @booking)
     else
       render 'cameras/show'
     end
