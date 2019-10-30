@@ -1,17 +1,20 @@
 class CamerasController < ApplicationController
+before_action :authenticate_user!, except: [:index, :show]
 before_action :set_camera, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cameras = Camera.all
+    @cameras = policy_scope(Camera).order(created_at: :desc)
   end
 
   def new
     @camera = Camera.new
+    authorize @camera
   end
 
   def create
     @camera = Camera.new(camera_params)
     @camera.user = current_user
+    authorize @camera
     if @camera.save
       redirect_to camera_path(@camera)
     else
@@ -20,7 +23,6 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-    @booking = Booking.new
   end
 
   def edit
@@ -40,6 +42,7 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
 
   def set_camera
     @camera = Camera.find(params[:id])
+    authorize @camera
   end
 
   def camera_params
