@@ -1,10 +1,14 @@
-<%= current_user.customer_bookings.first.return_date %>
-<%= current_user.customer_bookings.first.camera.name %>
 
-<%= current_user.customer_bookings.each do |b|  %>
-  <%=  b.camera.name %>
+<h1>Bookings you have made</h1>
+<% current_user.customer_bookings.each do |b|  %>
+  <p><%=  b.camera.name %></p>
+<% end %>
+
+  <hr>
+
+  <h1>Received Bookings</h1>
+<% current_user.owner_bookings.each do |b|  %>
+  <p><%=  b.camera.name %></p>
   <% end %>
 
 
-<%= current_user.owner_bookings.first.return_date %>
-<%= current_user.owner_bookings.first.camera.name %>
