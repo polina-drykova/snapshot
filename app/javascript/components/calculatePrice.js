@@ -1,8 +1,9 @@
 const calculatePrice = () => {
   const returnDateInput = document.querySelector("#booking_return_date")
 
-  returnDateInput.addEventListener("change", () => {
-    // have our two dates cconverting the valued to dated
+if (returnDateInput){
+    returnDateInput.addEventListener("change", () => {
+    // have our two dates converting the valued to dated
     const returnDate = new Date(document.querySelector("#booking_return_date").value);
     const startDate =  new Date(document.querySelector("#booking_rental_date").value);
 
@@ -22,6 +23,7 @@ const calculatePrice = () => {
                                   your total is ${bookingTotal} $`
     // showBookingPrice.style.display = "show"
   })
+}
 }
 
 export { calculatePrice }
