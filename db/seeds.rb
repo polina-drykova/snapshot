@@ -69,7 +69,7 @@ price_per_day = (rand(50..150))
 # email = Faker::Internet.email
 # password = Faker::Beer.brand
 
-puts 'Creating cameras...'
+puts 'Creating listings...'
 cameras_attributes = [
   {
     name:           'Beauty dish',
@@ -77,7 +77,7 @@ cameras_attributes = [
     description:    'Small reflector used primarily for close-up lighting of female faces to increase light fallout while retaining softness.',
     policies:       'Deposit $5',
     price_per_day:  5,
-    photo:          '../app/assets/images/beauty_dish.jpeg',
+    remote_photo_url:          'https://images.unsplash.com/photo-1514916726007-68847f06dd03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80',
     user_id:        1
   },
   {
@@ -86,7 +86,7 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  10,
-    photo:          '../app/assets/images/camera.jpeg',
+    remote_photo_url:          'https://images.unsplash.com/photo-1513652990199-8a52e2313122?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
     user_id:        1
   },
   {
@@ -95,7 +95,7 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  13,
-    photo:          '../app/assets/images/kleig light.jpeg',
+    remote_photo_url:          'https://images.unsplash.com/photo-1560264245-1dbfb9782b8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
     user_id:        1
   },
   {
@@ -104,7 +104,7 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/photo-studio-set.jpeg',
+    remote_photo_url:          'https://images.unsplash.com/photo-1527011046414-4781f1f94f8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
     user_id:        1
   },
   {
@@ -113,7 +113,7 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/canon_lens.jpeg',
+    remote_photo_url:          'https://images.unsplash.com/photo-1499932250142-44551dc71869?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80',
     user_id:        2
   },
     {
@@ -122,7 +122,7 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  2,
-    photo:          '../app/assets/images/camera_bag.jpeg',
+    remote_photo_url:          'https://images.unsplash.com/photo-1544141161-30fef2b4ba6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1001&q=80',
     user_id:        2
   },
     {
@@ -131,7 +131,7 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/Godox S-Type bracket Bowens mount.jpeg',
+    remote_photo_url:          'https://images.unsplash.com/photo-1541637797746-5bb9a4490f79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
     user_id:        1
   },
     {
@@ -140,7 +140,7 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  6,
-    photo:          '../app/assets/images/lens.jpeg',
+    remote_photo_url:          'https://images.unsplash.com/photo-1517701657121-79aa5abde62c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
     user_id:        1
   },
     {
@@ -149,7 +149,7 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/red_flare.jpeg',
+    remote_photo_url:          'https://images.unsplash.com/photo-1497809750169-a1f3e2b7d06c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1583&q=80',
     user_id:        1
   },
     {
@@ -158,9 +158,9 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    photo:          '../app/assets/images/canon.jpeg',
+    remote_photo_url:          'https://images.unsplash.com/photo-1519183071298-a2962feb14f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
     user_id:        1
   },
 ]
 Camera.create!(cameras_attributes)
-puts 'Cameras are finished!'
+puts 'Listings are finished!'
