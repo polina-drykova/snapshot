@@ -5,7 +5,9 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
   def index
     @cameras = policy_scope(Camera).order(created_at: :desc)
 
-    # # Instead of @cameras = Camera.geocoded
+
+    # Instead of @cameras = Camera.geocoded
+
     @cameras = @cameras.select  do |c|
       c.latitude && c.longitude
     end

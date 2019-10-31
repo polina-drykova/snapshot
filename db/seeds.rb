@@ -10,7 +10,6 @@ puts 'Cleaning database...'
 Camera.destroy_all
 
 
-
 require 'faker'
 
  puts 'Creating users...'
