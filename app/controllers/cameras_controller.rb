@@ -5,12 +5,11 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
   def index
     @cameras = policy_scope(Camera).order(created_at: :desc)
 
+    @cameras = Camera.geocoded
 
-    # Instead of @cameras = Camera.geocoded
-
-    @cameras = @cameras.select  do |c|
-      c.latitude && c.longitude
-    end
+    # @cameras = @cameras.select  do |c|
+    #   c.latitude && c.longitude
+    # end
 
     @markers = @cameras.map do |camera|
       {
@@ -75,9 +74,6 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
   end
 
   def camera_params
-
     params.require(:camera).permit(:name, :address, :category, :description, :policies, :price_per_day, :photo)
-
   end
-
 end
