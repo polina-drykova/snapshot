@@ -21,13 +21,26 @@ img{
 
     }
 }
-.fas {
+.fa-edit {
   color: #a6a6a6;
   text-decoration: none;
   &:hover {
       text-decoration: none;
       color:black;
     }
+}
+
+.fa-trash {
+  color: #a6a6a6;
+  text-decoration: none;
+  &:hover {
+      text-decoration: none;
+      color:black;
+    }
+}
+
+.fa-star {
+  color: #F9EA3E;
 }
 
 .nav {
@@ -43,7 +56,7 @@ img{
   text-decoration: none;
   &:hover {
       text-decoration: none;
-      color:black;
+      color: black;
     }
 }
 
@@ -59,6 +72,15 @@ p.category {
 .nav-tabs {
   width: 70%;
   margin: auto;
+}
+
+.review {
+  width: 90%;
+  margin: auto;
+}
+
+.review-top {
+
 }
 
 .product {
