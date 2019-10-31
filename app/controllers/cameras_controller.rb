@@ -5,7 +5,9 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
   def index
     @cameras = policy_scope(Camera).order(created_at: :desc)
 
+
     # Instead of @cameras = Camera.geocoded
+
     @cameras = @cameras.select  do |c|
       c.latitude && c.longitude
     end
@@ -17,6 +19,12 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
         infoWindow: render_to_string(partial: "info_window", locals: { camera: camera } ),
         image_url: helpers.asset_url('https://image.flaticon.com/icons/svg/149/149641.svg')
       }
+    end
+
+    if params[:query].present?
+      @cameras = Camera.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @cameras = Camera.all
     end
   end
 
@@ -30,6 +38,12 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
     @camera.user = current_user
     authorize @camera
     if @camera.save
+      params[:camera][:camera_photos].each do |photo|
+        po = Cloudinary::Uploader.upload(photo)
+
+        photos = Cameraphoto.new(camera: @camera, photo: po['url'])
+        photos.save!
+      end
       redirect_to camera_path(@camera)
     else
       render :new
@@ -61,7 +75,9 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
   end
 
   def camera_params
-    params.require(:camera).permit(:name, :address, :description, :policies, :price_per_day, :photo)
+
+    params.require(:camera).permit(:name, :address, :category, :description, :policies, :price_per_day, :photo)
+
   end
 
 end
