@@ -4,7 +4,10 @@ class Camera < ApplicationRecord
   has_many :reviews, through: :bookings
   has_many :cameraphotos, dependent: :destroy
 
+  CATEGORY = ["Camera", "Lenses/Filters", "Camera Bag", "Tripod & Support", "Flash", "Lighting & Studio", "Batteries & Power Accessories", "Mobile Accessories", "Other Accessories"]
+
   validates :name, :address, :description, :price_per_day, presence: true
+  validates :category, presence: true, inclusion: { in: CATEGORY }
   validates_numericality_of :price_per_day
   mount_uploader :photos, PhotoUploader
 
