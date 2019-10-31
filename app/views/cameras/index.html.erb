@@ -4,7 +4,7 @@
 <!-- HTML for card to be displayed on index page -->
 <div class="container container-index" >
   <div class="row">
-    <h2 class="col-12 text-justify index-header"><strong><%= count %>+ cameras & photography equipment are available close to you.</strong></h2>
+    <h2 class="col-12 d-flex justify-content index-header"><strong><%= count %>+ cameras & photography equipment are available close to you.</strong></h2>
   </div>
 
   <div class="row">
@@ -12,12 +12,14 @@
       <div class="filter-dropdowns-container ml-0 py-3">
         <div class="simple-search-form">
         <%= form_tag cameras_path, method: :get do %>
+        <p>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder:"What are you looking for?"
         %>
         <%= submit_tag "Search", class: "btn btn-success" %>
+        </p>
         <% end %>
         </div>
 
