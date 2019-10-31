@@ -1,0 +1,47 @@
+// body {
+//   background-color: white;
+// }
+
+.dashboard-card {
+  overflow: hidden;
+  height: 200px;
+  background: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  // align-items: center;
+}
+
+.dashboard-card img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.dashboard-card h2 {
+  font-size: 16px;
+  // font-weight: bold;
+  margin: 0;
+}
+
+.dashboard-card p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.dashboard-card .dashboard-info {
+  // margin-top: 2px;
+  padding: 16px;
+  text-align: left;
+  width: 100%;
+}
+
+.card-bottom-line {
+  padding-top: 60px;
+    text-align: right;
+        // text-align: bottom;
+
+  font-weight: lighter;
+}
