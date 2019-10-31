@@ -18,6 +18,12 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
         image_url: helpers.asset_url('https://image.flaticon.com/icons/svg/149/149641.svg')
       }
     end
+
+    if params[:query].present?
+      @cameras = Camera.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @cameras = Camera.all
+    end
   end
 
   def new
