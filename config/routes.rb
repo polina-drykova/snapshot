@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cameraphotos/create'
   devise_for :users
   root to: 'pages#home'
   get '/error', to: 'pages#error'

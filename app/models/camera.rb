@@ -2,10 +2,11 @@ class Camera < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_many :reviews, through: :bookings
+  has_many :cameraphotos, dependent: :destroy
 
   validates :name, :address, :description, :price_per_day, presence: true
   validates_numericality_of :price_per_day
-  mount_uploader :photo, PhotoUploader
+  mount_uploader :photos, PhotoUploader
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
