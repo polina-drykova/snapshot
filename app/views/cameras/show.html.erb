@@ -1,6 +1,8 @@
 <%= render 'shared/navbar' %>
-
-<div class="container bg-white my-4 " style="width: 80%">
+<div class="container mt-4 p-0">
+  <%= link_to '<< Back', cameras_path, class: "link" %>
+</div>
+<div class="container bg-white mb-5 pb-5" style="width: 80%">
 
   <div class="row d-flex justify-content-between mt-3 mb-5">
     <div class="col-md-4 mt-3 ">
@@ -15,7 +17,7 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100"
+            <img class="d-block w-100">
             <%= cl_image_tag @camera.cameraphotos[0].photo, height: 300, style: "width:100%" , crop: :fill %>
           </div>
           <% @camera.cameraphotos[1..-1].each do |c| %>
@@ -65,7 +67,7 @@
     </div>
 
     <div class="col-md-4 mt-3">
-      <div class="bookings-container">
+      <div class="bookings-container pt-1">
           <h3><strong>Book now</strong></h3>
 
         <div id='cameras-booking-dates' data-unavailable="<%= @camera.unavailable_dates.to_json %>">
@@ -76,7 +78,7 @@
                <div id="booking-price">
 
                </div>
-               <%= f.submit "Book now", class: "button-color2 " %>
+               <%= f.submit "Book now", class: "button-color2 mt-auto" %>
             <% end %>
           <% end %>
         </div>
@@ -88,19 +90,53 @@
   <div class="nav-tabs">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Description</a>
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Reviews</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Policy</a>
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Description</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Reviews</a>
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Policy</a>
       </li>
     </ul>
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><br><p> <%= @camera.description %> </p></div>
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><br><p><%= @camera.policies %></p></div>
-      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><br>...</div>
+    <div class="tab-content " id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><br> <!-- implement review: -->
+        <!-- review 1 -->
+       <div class="review mt-0">
+        <!-- box avatar/name + rating overall -->
+        <div class='review-top d-flex justify-content-between border-shadow mt-0 pt-0 mb-2'>
+          <!-- box avatar and name -->
+          <div class="avatar-name d-flex justify-content-start ">
+            <%= cl_image_tag('https://images.unsplash.com/photo-1534455700361-eca9c3dbc981?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80', class: "avatar-review" ) %>
+            <p class="my-auto ml-3">User name</p>
+          </div>
+          <div class="my-auto" style="color: yellow">
+            <p class="my-auto"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+          </div>
+        <!-- box text -->
+        </div>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
+       </div>
+       <hr>
+       <!-- review 2 -->
+       <div class="review mt-0">
+        <!-- 2. box avatar/name + rating overall -->
+        <div class='review-top d-flex justify-content-between border-shadow mt-0 pt-0 mb-2'>
+          <!-- 1 box avatar and name -->
+          <div class="avatar-name d-flex justify-content-start ">
+            <%= cl_image_tag('https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80', class: "avatar-review" ) %>
+            <p class="my-auto ml-3">User name</p>
+          </div>
+          <div class="my-auto" style="color: yellow">
+            <p class="my-auto"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+          </div>
+        <!-- 3 box review.text -->
+        </div>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
+       </div>
+      <!-- implement review --></div>
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><br><p> <%= @camera.description %> </p></div>
+      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><br><p><%= @camera.policies %></p></div>
     </div>
   </div>
 

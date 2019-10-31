@@ -9,21 +9,39 @@ img{
 /* ----- Product Section ----- */
 
 .nav-item .active {
-  background-color: #31d843;
+  background-color: white;
   // border: 2px solid #31d843;
-  border-radius: 6px;
+  border-radius: 8px;
   // padding: 7px 13px;
   color: white;
   transition: 0.5s ease;
+    &:hover {
+      background-color: #6AD875;
+      color: white;
+
+    }
 }
-// .fas {
-//   color: #a6a6a6;
-//   text-decoration: none;
-//   &:hover {
-//       text-decoration: none;
-//       color:black;
-//     }
-// }
+.fa-edit {
+  color: #a6a6a6;
+  text-decoration: none;
+  &:hover {
+      text-decoration: none;
+      color:black;
+    }
+}
+
+.fa-trash {
+  color: #a6a6a6;
+  text-decoration: none;
+  &:hover {
+      text-decoration: none;
+      color:black;
+    }
+}
+
+.fa-star {
+  color: #F9EA3E;
+}
 
 .nav {
   justify-content: center;
@@ -38,12 +56,12 @@ img{
   text-decoration: none;
   &:hover {
       text-decoration: none;
-      color:black;
+      color: black;
     }
 }
 
 h2 .title {
-  font-size: 35px;
+  font-size: 25px;
 }
 
 p.category {
@@ -52,8 +70,17 @@ p.category {
 }
 
 .nav-tabs {
-  width: 80%;
+  width: 70%;
   margin: auto;
+}
+
+.review {
+  width: 90%;
+  margin: auto;
+}
+
+.review-top {
+
 }
 
 .product {
@@ -74,7 +101,7 @@ p.category {
 }
 
 .bookings-container{
-  height: 300px;
+  height: 350px;
   margin-left: 50px;
   // padding: auto;
   // padding: 42px;
@@ -117,7 +144,7 @@ p.category {
     margin-bottom: 17px;
     margin-top: 10px;
     color: $color-primary;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: lighter;
     justify-content: space-between;
   }
@@ -133,7 +160,7 @@ p.category {
 .price h4 {
   // margin: 0.5em 0;
   color: $color-highlight;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: normal;
 }
      .price p {
