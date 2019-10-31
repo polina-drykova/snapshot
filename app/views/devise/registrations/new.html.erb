@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
 <div class="my-5">
-  <div class="card d-flex justify-content-center text-center align-items-column m-auto py-4" style="max-width: 450px">
+  <div class="card d-flex justify-content-center text-center align-items-column m-auto py-4" style="max-width: 550px">
     <h2>Sign up</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -24,6 +24,31 @@
                     placeholder: 'password confirmation',
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
+        <hr class="mx-auto mt-4 mb-3" style="width: 75%;">
+        <%= f.input :name,
+                    label: false,
+                    placeholder: 'name',
+                    required: true,
+                    autofocus: true %>
+        <%= f.input :address,
+                    label: false,
+                    placeholder: 'location',
+                    required: true,
+                    autofocus: true %>
+        <%= f.input :about_me,
+                    label: false,
+                    placeholder: 'write something about yourself',
+                    required: false,
+                    autofocus: true,
+                    :as => :text,
+                    :input_html => { 'rows' => 5, 'cols' => 10 } %>
+        <div class="mx-auto my-3" style="width: 55%;">
+        <%= f.input :avatar,
+                  label: false %>
+        <%= f.input :avatar_cache,
+                  as: :hidden %>
+        </div>
+
       </div>
 
       <div class="form-actions">

@@ -13,11 +13,11 @@
                   </div>
                    <div class="camera-price">
                    <h3>Total Price</h3>
-                    <p> numbers of days <strong><%= ((-(@booking.rental_date - @booking.return_date))).to_i  %></strong> </p>
-                    <p> * Price per day <strong><%= @booking.camera.price_per_day %> </strong> </p>
-                    <p> +service fee <strong><%= (((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day)*0.02)%>$ </strong></p>
+                    <p> Numbers of days <strong><%= ((-(@booking.rental_date - @booking.return_date))).to_i  %></strong> </p>
+                    <p> * Price per day <strong>$<%= @booking.camera.price_per_day %> </strong> </p>
+                    <p> + Service fee <strong>$<%= (((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day)*0.02)%> </strong></p>
                     <p class="text-center">--------------<p>
-                    <p><strong> = total price <%= ((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day) + (((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day)*0.02) %>$ </strong></p>
+                    <p><strong> = Total price $<%= ((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day) + (((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day)*0.02) %> </strong></p>
                     <p class="text-center">-----------------------------------------------------------<p>
                   </div>
                   <%= link_to "See my bookings", dashboard_path, :class => "button-color" %>
