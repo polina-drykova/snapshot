@@ -2,7 +2,7 @@
 <div class="container mt-4 p-0">
   <%= link_to '<< Back', cameras_path, class: "link" %>
 </div>
-<div class="container bg-white mb-5" style="width: 80%">
+<div class="container bg-white mb-5 pb-5" style="width: 80%">
 
   <div class="row d-flex justify-content-between mt-3 mb-5">
     <div class="col-md-4 mt-3 ">
@@ -67,7 +67,7 @@
     </div>
 
     <div class="col-md-4 mt-3">
-      <div class="bookings-container">
+      <div class="bookings-container pt-1">
           <h3><strong>Book now</strong></h3>
 
         <div id='cameras-booking-dates' data-unavailable="<%= @camera.unavailable_dates.to_json %>">
@@ -78,7 +78,7 @@
                <div id="booking-price">
 
                </div>
-               <%= f.submit "Book now", class: "button-color2 " %>
+               <%= f.submit "Book now", class: "button-color2 mt-auto" %>
             <% end %>
           <% end %>
         </div>
