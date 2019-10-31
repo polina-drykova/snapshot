@@ -1,0 +1,44 @@
+                          <div class="tab-pane fade" id="listings" role="tabpanel" aria-labelledby="listings-tab">
+                            <div class="card col-sm-6 col-md-6">
+                              <h4 class="my-3" style="color: grey">Upcoming Bookings</h4>
+                                <% upcomingBookings.each do |b| %>
+                                 <%= link_to camera_booking_path(b.camera, b), :class => "text-cards" do %>
+                                <%= cl_image_tag b.camera.photo, height: 300, width: 400, crop: :fill %>
+                                  <div class="card-product-infos">
+                                    <div class="card-top-line">
+                                        <h2><%=  b.camera.name %> </h2>
+                                        </div>
+                                        <p> Start date: <%= b.rental_date %> </p>
+                                        <p> Return date: <%= b.return_date %> </p>
+                                      <p> Dates till booking : <%= ((-(Date.today - b.rental_date))).to_i %> </p>
+                                      <div class="card-bottom-line">
+                                      <h2> Total Price: <%= ((((-(b.rental_date - b.return_date))).to_i )* b.camera.price_per_day) + (((((-(b.rental_date - b.return_date))).to_i )* b.camera.price_per_day)*0.02)%> $</h2>
+                                    </div>
+                                    <% end %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+                            <div class="tab-pane fade" id="listings" role="tabpanel" aria-labelledby="listings-tab">
+                              <div class="card col-sm-6 col-md-6">
+                                 <h4 class="my-3" style="color: grey">Past Bookings</h4>
+                                  <% pastBookings.each do |b| %>
+                                 <%= link_to camera_booking_path(b.camera, b), :class => "text-cards" do %>
+                                <%= cl_image_tag b.camera.photo, height: 300, width: 400, crop: :fill %>
+                                  <div class="card-product-infos">
+                                    <div class="card-top-line">
+                                        <h2> PAST BOOKINGS </h2>
+                                        <h2><%=  b.camera.name %> </h2>
+                                        </div>
+                                        <p> Start date: <%= b.rental_date %> </p>
+                                        <p> Return date: <%= b.return_date %> </p>
+                                      <div class="card-bottom-line">
+                                      <h2> Total Price: <%= ((((-(b.rental_date - b.return_date))).to_i )* b.camera.price_per_day) + (((((-(b.rental_date - b.return_date))).to_i )* b.camera.price_per_day)*0.02)%> $</h2>
+                                    </div>
+                                    <% end %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>

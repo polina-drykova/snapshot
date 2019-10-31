@@ -4,7 +4,7 @@
 
       <h1>Add a new Listing</h1>
 
-      <%= simple_form_for(@camera) do |f| %>
+      <%= simple_form_for(@camera, html: { multipart: true }) do |f| %>
 
       <div class="form-inputs align-items-center m-auto pt-3 " style="width: 75%;">
       <% if @camera.errors.any? %>
@@ -26,6 +26,12 @@
           <%= f.input :address,
                     label: false,
                     placeholder: 'Address'%>
+          <%= f.input :category,
+
+                    collection: ["Camera", "Lenses/Filters", "Camera Bag", "Tripod & Support", "Flash", "Lighting & Studio", "Batteries & Power Accessories", "Mobile Accessories", "Other Accessories"],
+                    multiple: :true,
+                    label: false,
+                    error: false  %>
           <%= f.input :description,
                     label: false,
                     placeholder: 'Description',
@@ -39,12 +45,9 @@
           <%= f.input :price_per_day,
                     label: false,
                     placeholder: 'Price per day' %>
+          <%= f.file_field :camera_photos, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
           <hr class="mx-auto mt-4 mb-3" style="width: 75%;">
           <div class="mx-auto my-3" style="width: 50%;">
-          <%= f.input :photo,
-                    label: false %>
-          <%= f.input :photo_cache,
-                    as: :hidden %>
           </div>
           <div class="form-actions">
           <%= f.button :submit, 'Create listing' , class: "button-color mb-2", style: "width: 100%;" %>

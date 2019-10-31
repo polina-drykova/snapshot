@@ -3,7 +3,10 @@ $color-primary: #4c4c4c;
 $color-secondary: #a6a6a6;
 $color-highlight: #ff3f40;
 
+img{
+    object-fit: cover;
 
+}
 /* ----- Product Section ----- */
 .product {
   display: grid;
@@ -18,6 +21,8 @@ $color-highlight: #ff3f40;
 /* ----- Photo Section ----- */
 .product__photo {
   position: relative;
+  object-fit: auto;
+
 }
 
 .bookings-container{
@@ -34,6 +39,7 @@ $color-highlight: #ff3f40;
 }
 
 .photo-container {
+  object-fit: cover;
   background-color: white;
   align-items: center;
   justify-content: center;
