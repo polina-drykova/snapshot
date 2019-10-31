@@ -1,89 +1,84 @@
 <%= render 'shared/navbar' %>
 
+<div class="container bg-white my-4 " style="width: 80%">
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 py-3">
-                      <div class="title">
-                <h1> <span id="left"><%= @camera.name %></span>
-                          <span id="right"> <%= link_to edit_camera_path(@camera), :class => "icons-show" do %>
-                            <i class="fas fa-edit" id="edit-icons"></i>
-                            <% end %>
-                          <%= link_to camera_path(@camera), :class => "icons-show", method: :delete, data: { confirm: 'Are you sure?' }  do %>
-                            <i class="fas fa-trash"id="edit-icons"></i>
-                        <% end %>
-              </div>
+  <div class="row d-flex justify-content-between mt-3 mb-5">
+    <div class="col-md-4 mt-3 ">
+      <%= cl_image_tag @camera.photo, height: 300, style: "width:100%" , crop: :fill %>
+    </div>
 
-        <div class="class=rounded mx-auto d-block p-2">
-          <%= cl_image_tag @camera.photo, height: 300, style: "width:100%" , crop: :fill %>
+    <div class="col-md-4 mt-4 mx-auto">
+      <div class="d-flex justify-content-between">
+        <p><% if @camera.previous_camera %>
+          <%= link_to 'previous', camera_path(@camera.previous_camera), class: "link" %>
+        <% end  %>
+        |
+        <% if @camera.next_camera %>
+          <%= link_to 'next', camera_path(@camera.next_camera), class: "link" %>
+        <% end  %></p>
+        <!-- edit/delete icons -->
+        <div class="">
+          <%= link_to edit_camera_path(@camera) do %><i class="fas fa-edit" style=""></i></%><% end %>
+          <%= link_to camera_path(@camera), method: :delete, data: { confirm: 'Are you sure?' }  do %><i class="fas fa-trash"></i><% end %>
         </div>
-              <div class="bookings-container ml-auto p-3 mb-4">
-              <h3><strong>Book this camera now</strong></h3>
-
-              <% if @booking.errors.any? %>
-              <div class="errors-container">
-                <ul>
-                  <% @booking.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-              <% end %>
-
-
-              <div id='cameras-booking-dates' data-unavailable="<%= @camera.unavailable_dates.to_json %>">
-                  <% if current_user != @camera.user  %>
-                     <%= simple_form_for([@camera, @booking]) do |f| %>
-                         <%= f.input :rental_date, html5: true %>
-                         <%= f.input :return_date, html5: true %>
-                         <div id="booking-price">
-
-                         </div>
-                         <%= f.submit "Book", class: "buy--btn" %>
-                      <% end %>
-                  <% end %>
-              </div>
-            </div>
       </div>
-      <div class="col-md-6 py-3">
-        <h5 class="pt-2">
-         <% if @camera.previous_camera %>
-          <%= link_to 'previous', camera_path(@camera.previous_camera) %>
-         <% end  %>
-         <span>|</span>
-         <% if @camera.next_camera %>
-          <%= link_to 'next', camera_path(@camera.next_camera)  %>
-         <% end  %>
-       </h5>
-          <div class="price">
-            <span><%= @camera.price_per_day %> </span> $/Days
-          </div>
-          <div class="category-list-p">
-            <ul class="list">
-              <li>
-                <a class="active">
-              <span>Category</span> : DSLR</a>
-              </li>
-            </ul>
-          </div>
-        <div class="description">
-          <h3></h3>
-            <span>
-            <p><strong> Description</strong></p>
-            <p> <%= @camera.description %> </p>
-            </span>
-            <span>
-            <p><strong>Address </strong></p>
-            <p><%= @camera.address %></p>
-            </span>
-            <span>
-            <p><strong>Policy </strong></p>
-            <p><%= @camera.policies %></p>
-            </span>
+        <!-- title and edit/delete icons -->
+        <!-- previous/next logic -->
+        <h2 class="title"><%= @camera.name %></h2>
+          <tr><td><p class="category my-1"><i class="fas fa-map-marker-alt" style="color: #31d843;"></i> <%= @camera.address %></p></td></tr>
+
+              <p class="category">Category: "#"</p>
+
+        <div class="price d-flex">
+          <h4 class="my-auto"><%= @camera.price_per_day %></h4><p class="mt-4">$/day</p>
+        </div>
+
+
+    </div>
+
+    <div class="col-md-4 mt-3">
+      <div class="bookings-container">
+          <h3><strong>Book now</strong></h3>
+
+        <div id='cameras-booking-dates' data-unavailable="<%= @camera.unavailable_dates.to_json %>">
+          <% if current_user != @camera.user  %>
+           <%= simple_form_for([@camera, @booking]) do |f| %>
+               <%= f.input :rental_date, html5: true %>
+               <%= f.input :return_date, html5: true %>
+               <div id="booking-price">
+
+               </div>
+               <%= f.submit "Book now", class: "button-color2 " %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="nav-tabs">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Description</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Policy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Reviews</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><br><p> <%= @camera.description %> </p></div>
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><br><p><%= @camera.policies %></p></div>
+      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><br>...</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- tabs: description/policy/reviews -->
+
 
 <%= render 'shared/footer' %>
 
