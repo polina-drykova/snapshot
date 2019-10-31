@@ -30,6 +30,27 @@
     }
 }
 
+.nav-link {
+}
+
+.nav-item .active {
+  background-color: #31d843 !important;
+}
+
+.button-color2 {
+  background-color: #31d843;
+  border: 2px solid #31d843;
+  border-radius: 6px;
+    padding: 7px 30px;
+  color: white;
+  transition: 0.5s ease;
+    &:hover {
+      background-color: #6AD875;
+      border: 2px solid #6AD875;
+      color: white;
+      }
+    }
+
 .link-color {
   color: #31d843;
     &:hover {
