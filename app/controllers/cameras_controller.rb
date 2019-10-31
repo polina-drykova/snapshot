@@ -61,7 +61,7 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
   end
 
   def camera_params
-    params.require(:camera).permit(:name, :address, :description, :policies, :price_per_day, :photo)
+    params.require(:camera).permit(:name, :address, :category, :description, :policies, :price_per_day, :photo)
   end
 
 end

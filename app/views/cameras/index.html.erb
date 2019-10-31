@@ -29,10 +29,14 @@
           <div class="card-product-infos">
             <div class="card-top-line">
             <h2> <%= c.name  %></h2>
+            <h2><i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i></h2>
             </div>
+            <div>
+            <h4> <%= c.category %></h4>
             <p> <%= c.description %></p>
+            </div>
             <div class="card-bottom-line">
-              <h2>$<%= c.price_per_day %></h2>
+              <h2 class="fixed">$<%= c.price_per_day %></h2>
             </div>
              <% end %>
           </div>
