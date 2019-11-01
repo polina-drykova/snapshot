@@ -20,7 +20,7 @@
 
             <img class="d-block w-100"
             <%= cl_image_tag @camera.cameraphotos[0].photo, height: 300, style: "width:100%" , crop: :fill %>>
-            
+
           </div>
           <% @camera.cameraphotos[1..-1].each do |c| %>
             <div class="carousel-item">
@@ -49,11 +49,15 @@
           <%= link_to 'next', camera_path(@camera.next_camera), class: "link" %>
         <% end  %></p>
         <!-- edit/delete icons -->
+
         <div class="">
+          <% if current_user == @camera.user %>
           <%= link_to edit_camera_path(@camera) do %><i class="fas fa-edit" style=""></i></%><% end %>
           <%= link_to camera_path(@camera), method: :delete, data: { confirm: 'Are you sure?' }  do %><i class="fas fa-trash"></i><% end %>
+          <% end %>
         </div>
       </div>
+
         <!-- title and edit/delete icons -->
         <!-- previous/next logic -->
         <h2 class="title"><%= @camera.name %></h2>
@@ -73,7 +77,7 @@
           <h3><strong>Book now</strong></h3>
 
         <div id='cameras-booking-dates' data-unavailable="<%= @camera.unavailable_dates.to_json %>">
-          <% if current_user != @camera.user  %>
+
            <%= simple_form_for([@camera, @booking]) do |f| %>
                <%= f.input :rental_date, html5: true %>
                <%= f.input :return_date, html5: true %>
@@ -81,7 +85,7 @@
 
                </div>
                <%= f.submit "Book now", class: "button-color2 mt-auto" %>
-            <% end %>
+
           <% end %>
         </div>
       </div>

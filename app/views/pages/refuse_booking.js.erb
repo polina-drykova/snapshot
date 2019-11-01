@@ -1,0 +1,14 @@
+
+booking = document.querySelector("[data-id='<%= @booking.id %>']")
+
+booking.querySelectorAll(".btn")[0].style.display="none"
+booking.querySelectorAll(".btn")[1].style.display="none"
+
+bookingHTML = booking.outerHTML
+
+
+bookingdisplay = document.querySelector(".past_container")
+
+bookingdisplay.insertAdjacentHTML("beforeend", bookingHTML )
+
+booking.remove()

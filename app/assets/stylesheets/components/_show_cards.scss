@@ -3,6 +3,19 @@ $color-primary: #4c4c4c;
 $color-secondary: #a6a6a6;
 $color-highlight: #ff3f40;
 
+#booking-price{
+    align-items: center;
+    font-size: 10px;
+    color: rgba(76, 76, 76, 1.000);
+
+    h1{
+      font-size: 15px;
+      text-align: center;
+    }
+
+}
+
+
 img{
     object-fit: cover;
 }

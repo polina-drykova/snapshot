@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
-  get '/accept/:id', to: 'pages#acceptBooking', as: :accept
-  get '/refuse/:id', to: 'pages#refuseBooking', as: :refuse
+  get '/accept/:id', to: 'pages#accept_booking', as: :accept
+  get '/refuse/:id', to: 'pages#refuse_booking', as: :refuse
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

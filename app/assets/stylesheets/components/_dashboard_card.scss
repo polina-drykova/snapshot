@@ -8,8 +8,10 @@
   background: white;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
+  margin-bottom: 10px;
   // align-items: center;
 }
+
 
 .dashboard-card img {
   height: 200px;
@@ -39,7 +41,7 @@
 }
 
 .card-bottom-line {
-  padding-top: 60px;
+  padding-top: 10px;
     text-align: right;
         // text-align: bottom;
 
