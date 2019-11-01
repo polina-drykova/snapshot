@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_booking, only: [:new, :create]
+  before_action :set_booking, only: [:new, :create ]
 
   def new
   end
@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to camera_path(@booking.camera)
     else
-      render :new
+      render 'cameras/show'
     end
   end
 

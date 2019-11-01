@@ -6,6 +6,14 @@ class Review < ApplicationRecord
   validates :rating, inclusion: { in: [1, 2, 3, 4, 5] }
   validates_numericality_of :rating
 
+  after_create :avg_review
+
+  def avg_review
+    ratings = self.booking.camera.reviews.pluck(:rating)
+    self.booking.camera.average_rating = (ratings.sum / ratings.count)
+    self.booking.camera.save
+  end
+
   def check_rating
     case self.rating
     when 5
