@@ -173,7 +173,7 @@ booking_attributes = [
    return_date:    Date.today + 3,
    total_price:    83,
    service_fee:    5,
-   user_id:        User.first.id,
+   user_id:        1,
    camera_id:      5
   },
     {
@@ -181,7 +181,7 @@ booking_attributes = [
    return_date:    Date.today + 5,
    total_price:    101,
    service_fee:    6,
-   user_id:        User.last.id,
+   user_id:        2,
    camera_id:      3
   },
   {
@@ -189,7 +189,7 @@ booking_attributes = [
    return_date:    Date.today + 7,
    total_price:    45,
    service_fee:    6,
-   user_id:        User.last.id,
+   user_id:        3,
    camera_id:      1
   },
   {
@@ -197,16 +197,96 @@ booking_attributes = [
    return_date:    Date.today + 2,
    total_price:    11,
    service_fee:    1,
-   user_id:        User.last.id,
+   user_id:        4,
    camera_id:      2
   },
   {
-   rental_date:    Date.today,
-   return_date:    Date.today + 5,
+   rental_date:    Date.today + 20,
+   return_date:    Date.today + 30,
+   total_price:    40,
+   service_fee:    4,
+   user_id:        1,
+   camera_id:      4
+  },
+    {
+   rental_date:    Date.today + 34,
+   return_date:    Date.today + 35,
+   total_price:    66,
+   service_fee:    4,
+   user_id:        2,
+   camera_id:      6
+  },
+    {
+   rental_date:    Date.today + 36,
+   return_date:    Date.today + 40,
+   total_price:    55,
+   service_fee:    4,
+   user_id:        3,
+   camera_id:      7
+  },
+    {
+   rental_date:    Date.today + 41,
+   return_date:    Date.today + 45,
+   total_price:    42,
+   service_fee:    4,
+   user_id:        4,
+   camera_id:      10
+  },
+    {
+   rental_date:    Date.today + 46,
+   return_date:    Date.today + 55,
+   total_price:    35,
+   service_fee:    4,
+   user_id:        1,
+   camera_id:      9
+  },
+    {
+   rental_date:    Date.today + 60,
+   return_date:    Date.today + 65,
+   total_price:    105,
+   service_fee:    4,
+   user_id:        2,
+   camera_id:      9
+  },
+    {
+   rental_date:    Date.today + 70,
+   return_date:    Date.today + 75,
+   total_price:    120,
+   service_fee:    4,
+   user_id:        3,
+   camera_id:      9
+  },
+    {
+   rental_date:    Date.today + 34,
+   return_date:    Date.today + 35,
+   total_price:    170,
+   service_fee:    4,
+   user_id:        4,
+   camera_id:      7
+  },
+    {
+   rental_date:    Date.today + 25,
+   return_date:    Date.today + 35,
+   total_price:    60,
+   service_fee:    4,
+   user_id:        2,
+   camera_id:      4
+  },
+    {
+   rental_date:    Date.today + 10,
+   return_date:    Date.today + 15,
+   total_price:    55,
+   service_fee:    4,
+   user_id:        1,
+   camera_id:      3
+  },
+    {
+   rental_date:    Date.today + 10,
+   return_date:    Date.today + 15,
    total_price:    70,
    service_fee:    4,
-   user_id:        User.last.id,
-   camera_id:      4
+   user_id:        4,
+   camera_id:      1
   },
 ]
 Booking.create!(booking_attributes)
@@ -238,6 +318,56 @@ reviews_attributes = [
    content:    'A fifth review!',
    rating:     (rand(1...5)),
    booking_id:    5,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    6,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    7,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    8,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    9,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    10,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    11,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    12,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    13,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    14,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    15,
   },
 ]
 Review.create!(reviews_attributes)
