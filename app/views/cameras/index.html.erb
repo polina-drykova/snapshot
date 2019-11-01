@@ -17,9 +17,8 @@
             class: "form-control",
             placeholder:"What are you looking for?"
           %>
-
-          <%= submit_tag "Search", class: "btn btn-success" %>
-          <%= select_tag :sort, options_for_select(["low", "price_per_day", "name"]), class:"sort-selector" %>
+          <%= select_tag :sort, options_for_select(["sort by price | max - min |", "sort by price | min - max |", "sort by | A - Z | "]), class:"sort-selector" %>
+          <%= submit_tag "Search", class: "btn btn-success pl-3" %>
           <% end %>
 
           <!-- <div class="single_product_menu d-flex type="button" data-toggle="dropdown"><h5>Sort by</h5>
