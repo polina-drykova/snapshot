@@ -49,8 +49,8 @@
           <%= cl_image_tag c.cameraphotos[0].photo, height: 300, width: 400, crop: :fill %>
           <div class="card-product-infos">
             <div class="card-top-line">
-            <h2> <%= c.name  %></h2>
-            <h2 class="stars-on-index"><i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i></h2>
+            <h2> <%= c.name  %> </h2>
+            <p style="font-size: 12px"> <%= c.check_rating(c.average_rating) %> <%= c.display_rating_count(c.reviews.count) %>  </p>
             </div>
             <div>
             <h4> <%= c.category %></h4>

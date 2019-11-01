@@ -216,27 +216,27 @@ puts 'Creating reviews...'
 reviews_attributes = [
   {
    content:    'This is my first review!',
-   rating:     rating,
+   rating:     (rand(1...5)),
    booking_id:    1,
   },
     {
    content:    'A second review!',
-   rating:     rating,
+   rating:     (rand(1...5)),
    booking_id:    2,
   },
   {
    content:    'A third review!',
-   rating:     rating,
+   rating:     (rand(1...5)),
    booking_id:    3,
   },
   {
    content:    'A fourth review!',
-   rating:     rating,
+   rating:     (rand(1...5)),
    booking_id:    4,
   },
   {
    content:    'A fifth review!',
-   rating:     rating,
+   rating:     (rand(1...5)),
    booking_id:    5,
   },
 ]
