@@ -144,7 +144,7 @@
                 <div class="row">
                   <div class="col-lg-8  mx-auto acceptedbookings">
                    <h3>Accepted bookings</h3>
-                   <% @future_listings.each do |b| %>
+                   <% @accepted_listings.each do |b| %>
                       <div class="dashboard-card">
                      <%= link_to camera_booking_path(b.camera, b), :class => "text-cards" do %>
                      <%= cl_image_tag b.camera.cameraphotos[0].photo, height: 300, width: 400, crop: :fill %>

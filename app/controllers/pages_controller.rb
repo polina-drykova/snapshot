@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @rejected_bookings = Booking.where(user: current_user).where(accepted: "refused")
     @pending_bookings = Booking.where(user: current_user).where(accepted: "waiting")
     @future_listings = @my_bookings.where("rental_date > ?", "#{Date.today}").where(accepted: "waiting")
+    @accepted_listings = @my_bookings.where("rental_date > ?", "#{Date.today}").where(accepted: "accepted")
     @past_listings = @my_bookings.where("rental_date < ?", "#{Date.today}")
     @past_bookings = Booking.where(user: current_user).where("rental_date < ?", "#{Date.today}") + @rejected_bookings
     @future_bookings = Booking.where(user: current_user).where("rental_date > ?", "#{Date.today}").where(accepted: "accepted")
