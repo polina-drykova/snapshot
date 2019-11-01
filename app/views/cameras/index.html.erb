@@ -10,31 +10,42 @@
   <div class="row">
     <div class="col-12 filter-container ml-0">
       <div class="filter-dropdowns-container ml-0 py-3">
-        <div class="simple-search-form d-flex justify-content" style="min-width:250px">
-        <%= form_tag cameras_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder:"What are you looking for?"
-        %>
-        <%= submit_tag "Search", class: "btn btn-success" %>
-        <% end %>
-        </div>
+        <div class="simple-search-form d-flex justify-content" style="width: 100%">
+          <%= form_tag cameras_path, method: :get, class:"search-camera-form" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder:"What are you looking for?"
+          %>
 
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <p>Brand</p>
-          <%#= link_to "brand", profile_path, class: "dropdown-item" %>
-            <hr class="mx-auto mt-1 mb-0 p-0 d-flex" style="width: 75%;">
-          <p>Price</p>
-          <%#= link_to "price", dashboard_path, class: "dropdown-item" %>
-          <hr class="mx-auto mt-1 mb-0 p-0 d-flex" style="width: 75%;">
-        </div>
+          <%= submit_tag "Search", class: "btn btn-success" %>
+          <%= select_tag :sort, options_for_select(["low", "price_per_day", "name"]), class:"sort-selector" %>
+          <% end %>
 
-
-        <div class="single_product_menu d-flex type="button" data-toggle="dropdown"><h5>Sort by</h5>
+          <!-- <div class="single_product_menu d-flex type="button" data-toggle="dropdown"><h5>Sort by</h5>
             <select style="display: none;"></select>
             <div class="nice-select" tabindex="0"><span class="current"><i class="fas fa-chevron-down"></i></span></div>
+          </div>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <p>Brand</p>
+          <%#= link_to "brand", profile_path, class: "dropdown-item" %>
+            <hr class="mx-auto mt-1 mb-0 p-0 d-flex" style="width: 75%;">
+            <p>Price</p>
+          <%#= link_to "price", dashboard_path, class: "dropdown-item" %>
+            <hr class="mx-auto mt-1 mb-0 p-0 d-flex" style="width: 75%;">
+          </div>
+
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <p>Brand</p>
+              <%#= link_to "brand", profile_path, class: "dropdown-item" %>
+            <hr class="mx-auto mt-1 mb-0 p-0 d-flex" style="width: 75%;">
+            <p>Price</p>
+              <%#= link_to "price", dashboard_path, class: "dropdown-item" %>
+            <hr class="mx-auto mt-1 mb-0 p-0 d-flex" style="width: 75%;">
+          </div> -->
+
         </div>
+
     </div>
    </div>
   </div>
