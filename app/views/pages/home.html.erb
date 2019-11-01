@@ -1,8 +1,8 @@
 <div class="banner d-flex align-items-end justify-content-center flex-column" id="banner">
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon2 px-5" style="width: 100%">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon2 d-flex justify-content px-5" style="width: 100%">
 
 
-  <%= link_to image_tag("snapshot_logo2.png"), root_path, class: "navbar-brand py-0 mx-5" %>
+  <%= link_to image_tag("snapshot_logo2.png"), root_path, class: "navbar-brand py-0 mx-3" %>
 
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Profile", profile_path, class: "dropdown-item" %>
             <hr class="mx-auto mt-1 mb-0 p-0 d-flex" style="width: 75%;">
-            <%= link_to "My bookings", dashboard_path, class: "dropdown-item" %>
+            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
             <hr class="mx-auto mt-1 mb-0 p-0 d-flex" style="width: 75%;">
 
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

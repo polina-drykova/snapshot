@@ -30,7 +30,7 @@ require 'faker'
     password:    '1234567',
     name: 'Eric',
     address: "Canggu, Bali",
-    remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
+    remote_avatar_url: 'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=639&q=80',
     about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
   },
   {
@@ -38,7 +38,7 @@ require 'faker'
     password:    '1234567',
     name: 'Sacha',
     address: "Canggu, Bali",
-    remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
+    remote_avatar_url: 'https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80',
     about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
   },
   {
@@ -46,7 +46,7 @@ require 'faker'
     password:    '1234567',
     name: 'Sebastian',
     address: "Canggu, Bali",
-    remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
+    remote_avatar_url: 'https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80',
     about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
   },
  ]
@@ -189,7 +189,7 @@ booking_attributes = [
    return_date:    Date.today + 3,
    total_price:    83,
    service_fee:    5,
-   user_id:        User.first.id,
+   user_id:        1,
    camera_id:      5
   },
     {
@@ -197,8 +197,112 @@ booking_attributes = [
    return_date:    Date.today + 5,
    total_price:    101,
    service_fee:    6,
-   user_id:        User.last.id,
+   user_id:        2,
    camera_id:      3
+  },
+  {
+   rental_date:    Date.today,
+   return_date:    Date.today + 7,
+   total_price:    45,
+   service_fee:    6,
+   user_id:        3,
+   camera_id:      1
+  },
+  {
+   rental_date:    Date.today,
+   return_date:    Date.today + 2,
+   total_price:    11,
+   service_fee:    1,
+   user_id:        4,
+   camera_id:      2
+  },
+  {
+   rental_date:    Date.today + 20,
+   return_date:    Date.today + 30,
+   total_price:    40,
+   service_fee:    4,
+   user_id:        1,
+   camera_id:      4
+  },
+    {
+   rental_date:    Date.today + 34,
+   return_date:    Date.today + 35,
+   total_price:    66,
+   service_fee:    4,
+   user_id:        2,
+   camera_id:      6
+  },
+    {
+   rental_date:    Date.today + 36,
+   return_date:    Date.today + 40,
+   total_price:    55,
+   service_fee:    4,
+   user_id:        3,
+   camera_id:      7
+  },
+    {
+   rental_date:    Date.today + 41,
+   return_date:    Date.today + 45,
+   total_price:    42,
+   service_fee:    4,
+   user_id:        4,
+   camera_id:      10
+  },
+    {
+   rental_date:    Date.today + 46,
+   return_date:    Date.today + 55,
+   total_price:    35,
+   service_fee:    4,
+   user_id:        1,
+   camera_id:      9
+  },
+    {
+   rental_date:    Date.today + 60,
+   return_date:    Date.today + 65,
+   total_price:    105,
+   service_fee:    4,
+   user_id:        2,
+   camera_id:      9
+  },
+    {
+   rental_date:    Date.today + 70,
+   return_date:    Date.today + 75,
+   total_price:    120,
+   service_fee:    4,
+   user_id:        3,
+   camera_id:      9
+  },
+    {
+   rental_date:    Date.today + 34,
+   return_date:    Date.today + 35,
+   total_price:    170,
+   service_fee:    4,
+   user_id:        4,
+   camera_id:      7
+  },
+    {
+   rental_date:    Date.today + 25,
+   return_date:    Date.today + 35,
+   total_price:    60,
+   service_fee:    4,
+   user_id:        2,
+   camera_id:      4
+  },
+    {
+   rental_date:    Date.today + 10,
+   return_date:    Date.today + 15,
+   total_price:    55,
+   service_fee:    4,
+   user_id:        1,
+   camera_id:      3
+  },
+    {
+   rental_date:    Date.today + 10,
+   return_date:    Date.today + 15,
+   total_price:    70,
+   service_fee:    4,
+   user_id:        4,
+   camera_id:      1
   },
 ]
 Booking.create!(booking_attributes)
@@ -207,29 +311,79 @@ puts 'Bookings are finished!'
 puts 'Creating reviews...'
 reviews_attributes = [
   {
-   content:    description,
-   rating:     rating,
+   content:    'This is my first review!',
+   rating:     (rand(1...5)),
    booking_id:    1,
   },
     {
-   content:    description,
-   rating:     rating,
+   content:    'A second review!',
+   rating:     (rand(1...5)),
    booking_id:    2,
   },
   {
-   content:    description,
-   rating:     rating,
-   booking_id:    1,
+   content:    'A third review!',
+   rating:     (rand(1...5)),
+   booking_id:    3,
   },
   {
-   content:    description,
-   rating:     rating,
-   booking_id:    1,
+   content:    'A fourth review!',
+   rating:     (rand(1...5)),
+   booking_id:    4,
   },
   {
-   content:    description,
-   rating:     rating,
-   booking_id:    2,
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    5,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    6,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    7,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    8,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    9,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    10,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    11,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    12,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    13,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    14,
+  },
+    {
+   content:    'A fifth review!',
+   rating:     (rand(1...5)),
+   booking_id:    15,
   },
 ]
 Review.create!(reviews_attributes)

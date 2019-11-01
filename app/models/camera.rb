@@ -20,13 +20,37 @@ class Camera < ApplicationRecord
     end
   end
 
-def previous_camera
-  Camera.where(["id < ?", self.id]).last
-end
+ def previous_camera
+   Camera.where(["id < ?", self.id]).last
+ end
 
-def next_camera
-  Camera.where(["id > ?", self.id]).first
-end
+ def next_camera
+   Camera.where(["id > ?", self.id]).first
+ end
 
+ def check_rating(rating)
+   case rating
+   when 5
+     return "<i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i>".html_safe
+   when 4
+     return "<i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='far fa-star'></i>".html_safe
+   when 3
+     return "<i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='far fa-star'></i> <i class='far fa-star'></i>".html_safe
+   when 2
+     return "<i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='far fa-star'></i> <i class='far fa-star'></i> <i class='far fa-star'></i>".html_safe
+   when 1
+     return "<i class='fas fa-star'></i> <i class='far fa-star'></i> <i class='far fa-star'></i> <i class='far fa-star'></i> <i class='far fa-star'></i>".html_safe
+   else
+     return "No reviews yet!"
+   end
+ end
+
+ def display_rating_count(count)
+  if count > 0
+    return " (#{count})"
+  elsif count = 0
+    return ""
+  end
+ end
 end
 

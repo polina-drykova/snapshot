@@ -1,7 +1,7 @@
 <%= render 'shared/navbar' %>
 
 <div class="container my-5 pb-4 bg-white">
-    <h2 class="text-center mt-3 pt-3">Here is your quote</h2>
+    <h2 class="text-center mt-3 pt-3">Booking details</h2>
 
   <div class="row d-flex justify-content-between mt-3 mb-5">
     <div class="col-md-4 mt-3 ">
@@ -63,13 +63,32 @@
                     <p class="text-align-right"><strong> $<%= ((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day) + (((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day)*0.02) %> </strong></p>
                     <hr class="mb-5">
                   </div>
-                  <%= link_to "See my bookings", dashboard_path, :class => "button-color2" %>
+                  <%= link_to "Go back to bookings", dashboard_path, :class => "button-color2" %>
                   <%= link_to "Go to listing", camera_path(@camera), :class => "button-color2" %>
               </div>
           </div>
         </div>
       </div>
-
+    <h2 class="text-center">Add a review</h2>
+  <div class="d-flex justify-content-center text-center m-auto py-4" style="max-width: 550px" style="height: 500px;">
+    <div class="text-center" style="width: 400px;">
+        <%= simple_form_for [@booking, @review] do |f| %>
+        <%= f.input :rating, collection: 1..5,
+                    label: false,
+                    required: false %>
+        <%= f.input :content,
+                    label: false,
+                    placeholder: 'write your review',
+                    required: true,
+                    autofocus: true,
+                    :as => :text,
+                    :input_html => { 'rows' => 5, 'cols' => 10 } %>
+        <div class="form-actions">
+          <%= f.button :submit, "Send", class: "button-color mb-2", style: "width: 75%;" %>
+        </div>
+        <% end %>
+    </div>
+  </div>
 
 </div>
 <%= render 'shared/footer' %>

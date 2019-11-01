@@ -4,13 +4,13 @@
 <!-- HTML for card to be displayed on index page -->
 <div class="container container-index" >
   <div class="row">
-    <h2 class="col-12 text-justify index-header"><strong><%= count %>+ cameras & photography equipment are available close to you.</strong></h2>
+    <h2 class="col-12 d-flex justify-content index-header"><strong><%= count %>+ cameras & photography equipment are available close to you.</strong></h2>
   </div>
 
   <div class="row">
     <div class="col-12 filter-container ml-0">
       <div class="filter-dropdowns-container ml-0 py-3">
-        <div class="simple-search-form">
+        <div class="simple-search-form d-flex justify-content" style="min-width:250px">
         <%= form_tag cameras_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -49,8 +49,8 @@
           <%= cl_image_tag c.cameraphotos[0].photo, height: 300, width: 400, crop: :fill %>
           <div class="card-product-infos">
             <div class="card-top-line">
-            <h2> <%= c.name  %></h2>
-            <h2 class="stars-on-index"><i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i> <i class='fas fa-star'></i></h2>
+            <h2> <%= c.name  %> </h2>
+            <p style="font-size: 12px"> <%= c.check_rating(c.average_rating) %> <%= c.display_rating_count(c.reviews.count) %>  </p>
             </div>
             <div>
             <h4> <%= c.category %></h4>
