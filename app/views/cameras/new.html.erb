@@ -44,13 +44,12 @@
           <%= f.input :price_per_day,
                     label: false,
                     placeholder: 'Price per day' %>
-          <p>Please add min 3 pictures</p>
           <%= f.file_field :camera_photos, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
           <hr class="mx-auto mt-4 mb-3" style="width: 75%;">
           <div class="mx-auto my-3" style="width: 50%;">
           </div>
           <div class="form-actions">
-          <%= f.button :submit, 'Create listing' , class: "button-color mb-2", style: "width: 100%;", disabled: true %>
+          <%= f.button :submit, 'Create listing' , class: "button-color mb-2", style: "width: 100%;" %>
           </div>
         </div>
       <% end %>

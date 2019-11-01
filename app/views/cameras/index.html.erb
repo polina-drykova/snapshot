@@ -12,14 +12,12 @@
       <div class="filter-dropdowns-container ml-0 py-3">
         <div class="simple-search-form d-flex justify-content" style="min-width:250px">
         <%= form_tag cameras_path, method: :get do %>
-        <p>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder:"What are you looking for?"
         %>
         <%= submit_tag "Search", class: "btn btn-success" %>
-        </p>
         <% end %>
         </div>
 
