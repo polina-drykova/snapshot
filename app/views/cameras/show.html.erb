@@ -82,8 +82,8 @@
         <div id='cameras-booking-dates' data-unavailable="<%= @camera.unavailable_dates.to_json %>">
 
            <%= simple_form_for([@camera, @booking]) do |f| %>
-               <%= f.input :rental_date, html5: true %>
-               <%= f.input :return_date, html5: true %>
+               <%= f.input :rental_date, html5: true, placeholder: false %>
+               <%= f.input :return_date, html5: true, placeholder: false %>
                <div id="booking-price">
 
                </div>
