@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-12 filter-container ml-0">
       <div class="filter-dropdowns-container ml-0 py-3">
-        <div class="simple-search-form">
+        <div class="simple-search-form d-flex justify-content" style="min-width:250px">
         <%= form_tag cameras_path, method: :get do %>
         <p>
         <%= text_field_tag :query,
