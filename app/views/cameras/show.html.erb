@@ -63,9 +63,10 @@
         <!-- previous/next logic -->
         <h2 class="title"><%= @camera.name %></h2>
         <p><%= @camera.check_rating(@camera.average_rating)  %> <%= @camera.display_rating_count(@camera.reviews.count) %></p>
+        <p class="category"><strong>Category:</strong>  <%= @camera.category %></p>
           <tr><td><p class="category my-1"><i class="fas fa-map-marker-alt" style="color: #31d843;"></i> <%= @camera.address %></p></td></tr>
 
-              <p class="category"><strong>Category:</strong>  <%= @camera.category %></p>
+
 
         <div class="price d-flex">
           <h4 class="my-auto">$<%= @camera.price_per_day %></h4><p class="mt-2">/day</p>
@@ -89,7 +90,7 @@
 
                <%= f.submit "Book now", data: { confirm: 'Thank you for your interest! If you click OK, your booking will be confirmed' }, class: "button-color2 mt-auto" %>
             <% end %>
-          <% end %>
+
         </div>
       </div>
     </div>
