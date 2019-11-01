@@ -10,7 +10,7 @@ class Review < ApplicationRecord
 
   def avg_review
     ratings = self.booking.camera.reviews.pluck(:rating)
-    self.booking.camera.average_rating = (ratings.sum / ratings.count)
+    self.booking.camera.average_rating = (ratings.sum.to_f / ratings.count).round(half: :up)
     self.booking.camera.save
   end
 

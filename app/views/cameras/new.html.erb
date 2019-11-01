@@ -6,17 +6,7 @@
 
       <%= simple_form_for(@camera, html: { multipart: true }) do |f| %>
 
-      <div class="form-inputs align-items-center m-auto pt-3 " style="width: 75%;">
-      <% if @camera.errors.any? %>
-      <div class="errors-container" style="color: red;">
-        <tr>
-          <% @camera.errors.full_messages.each do |message| %>
-            <td> <p> <%= message %></td> *</p>
-          <% end %>
-        </tr>
-      </div>
-      <% end %>
-    </div>
+
 
 
         <div class="form-inputs align-items-center m-auto pt-3 " style="width: 75%;">
@@ -29,6 +19,7 @@
           <%= f.input :category,
                     collection: ["Camera", "Lenses/Filters", "Camera Bag", "Tripod & Support", "Flash", "Lighting & Studio", "Batteries & Power Accessories", "Mobile Accessories", "Other Accessories"],
                     multiple: :true,
+                    include_blank: false,
                     label: false,
                     error: false  %>
           <%= f.input :description,
