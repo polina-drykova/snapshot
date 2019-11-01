@@ -64,7 +64,7 @@
             </div>
             <div>
             <h4> <%= c.category %></h4>
-            <p> <%= c.description %></p>
+            <p> <%= c.description[0..231] %></p>
             </div>
             <div class="card-bottom-line">
               <h2 class="fixed">$<%= c.price_per_day %></h2>
