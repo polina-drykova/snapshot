@@ -25,6 +25,14 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
     else
       @cameras = Camera.all
     end
+
+    if params[:sort] == "price"
+        @cameras = @cameras.sort_by { |camera| camera.price_per_day }
+      elsif params[:sort] == "low"
+        @cameras = @cameras.sort_by { |camera| -camera.price_per_day }
+      else
+        @cameras = @cameras.sort_by { |camera| camera.name }
+      end
   end
 
   def new
