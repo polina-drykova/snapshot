@@ -199,22 +199,21 @@
                           <div class="row">
                                 <div class="col-lg-8  mx-auto">
                                    <h3>My Equipement</h3>
-                                  <% @my_bookings.each do |b| %>
+                                  <% @my_cameras.each do |b| %>
                                     <div class="dashboard-card">
-                                    <%= link_to camera_booking_path(b.camera, b), :class => "text-cards" do %>
-                                    <%= cl_image_tag b.camera.cameraphotos[0].photo, height: 300, width: 400, crop: :fill %>
+                                    <%= link_to camera_path(b), :class => "text-cards" do %>
+                                    <%= cl_image_tag b.cameraphotos[0].photo, height: 300, width: 400, crop: :fill %>
                                       <div class="dashboard-info mt-0 pt-2">
                                         <div class="card-top-line">
-                                            <h2><%=  b.camera.name %> </h2>
+                                            <h2><%=  b.name %> </h2>
                                             </div>
                                             <div class="dashboard-date">
-                                            <p> Start date: <%= b.rental_date %> </p>
-                                            <p> Return date: <%= b.return_date %> </p>
-                                            <p> Date till booking: <%= ((-( Date.today - b.rental_date )).to_i ) %> </p>
+                                              <p><strong><%=  b.category %></strong></p>
+                                              <p> <%=  b.description %> </p>
 
                                             </div>
                                           <div class="card-bottom-line">
-                                          <h2> Total Price: $<%= ((((-(b.rental_date - b.return_date))).to_i )* b.camera.price_per_day) + (((((-(b.rental_date - b.return_date))).to_i )* b.camera.price_per_day)*0.02)%> </h2>
+                                            <h2> $ <%=  b.price_per_day%> /day </h2>
                                         </div>
                                         <% end %>
                                       </div>
