@@ -142,7 +142,7 @@ cameras_attributes = [
     address:        '500 L St SE, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
-
+    price_per_day:  price_per_day,
     user_id:        User.first.id,
 
     category: Camera::CATEGORY.sample
