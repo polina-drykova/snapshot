@@ -1,5 +1,5 @@
 <%= render 'shared/navbar' %>
-<div class="container mt-4 p-0">
+<div class="container mt-4 p-0" style="width: 1000px;">
   <%= link_to '<< Back', cameras_path, class: "link" %>
 </div>
 <div class="container bg-white mb-5 pb-5" style="width: 80%">
@@ -17,12 +17,14 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100">
-            <%= cl_image_tag @camera.cameraphotos[0].photo, height: 300, style: "width:100%" , crop: :fill %>
+
+
+            <%= cl_image_tag @camera.cameraphotos[0].photo, class: "d-block w-100", height: 300, style: "width:100%" , crop: :fill %>
+
           </div>
           <% @camera.cameraphotos[1..-1].each do |c| %>
             <div class="carousel-item">
-              <img class="d-block w-100" <%= cl_image_tag c.photo, height: 300, style: "width:100%" , crop: :fill %>
+              <%= cl_image_tag c.photo, class: "d-block w-100", height: 300, style: "width:100%" , crop: :fill %>
             </div>
           <% end %>
         </div>
@@ -37,7 +39,7 @@
       </div>
     </div>
 
-    <div class="col-md-4 mt-4 mx-auto">
+    <div class="col-md-4 mt-4 ">
       <div class="d-flex justify-content-between">
         <p><% if @camera.previous_camera %>
           <%= link_to 'previous', camera_path(@camera.previous_camera), class: "link" %>
@@ -79,7 +81,7 @@
                <div id="booking-price">
 
                </div>
-               <%= f.submit "Book now", class: "button-color2 mt-auto" %>
+               <%= f.submit "Book now", data: { confirm: 'Thank you for your interest! If you click OK, your booking will be confirmed' }, class: "button-color2 mt-auto" %>
             <% end %>
           <% end %>
         </div>

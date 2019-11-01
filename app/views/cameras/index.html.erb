@@ -4,13 +4,13 @@
 <!-- HTML for card to be displayed on index page -->
 <div class="container container-index" >
   <div class="row">
-    <h2 class="col-12 text-justify index-header"><strong><%= count %>+ cameras & photography equipment are available close to you.</strong></h2>
+    <h2 class="col-12 d-flex justify-content index-header"><strong><%= count %>+ cameras & photography equipment are available close to you.</strong></h2>
   </div>
 
   <div class="row">
     <div class="col-12 filter-container ml-0">
       <div class="filter-dropdowns-container ml-0 py-3">
-        <div class="simple-search-form">
+        <div class="simple-search-form d-flex justify-content" style="min-width:250px">
         <%= form_tag cameras_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],

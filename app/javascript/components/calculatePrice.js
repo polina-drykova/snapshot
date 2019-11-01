@@ -22,7 +22,7 @@ if (returnDateInput){
                                   Price per day : $${pricePerDay} <br>
                                   Service fee (2%) : $${serviceFee} <br>
                                   Your total is $${bookingTotal} `
-    // showBookingPrice.style.display = "show"
+    showBookingPrice.style.display = "show"
   })
 }
 }

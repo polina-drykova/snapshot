@@ -69,7 +69,9 @@ cameras_attributes = [
     description:    'Small reflector used primarily for close-up lighting of female faces to increase light fallout while retaining softness.',
     policies:       'Deposit $5',
     price_per_day:  5,
+
     user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
   {
@@ -78,7 +80,9 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  10,
+
     user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
   {
@@ -87,7 +91,9 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  13,
+
     user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
   {
@@ -105,6 +111,7 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
+
     user_id:        User.last.id,
     category: Camera::CATEGORY.sample
   },
@@ -114,7 +121,9 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  2,
+
     user_id:        User.last.id,
+
     category: Camera::CATEGORY.sample
   },
     {
@@ -123,7 +132,9 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
+
     user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
     {
@@ -131,8 +142,9 @@ cameras_attributes = [
     address:        '500 L St SE, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
-    price_per_day:  6,
+    price_per_day:  price_per_day,
     user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
     {
@@ -141,7 +153,9 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
+
     user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
     {
@@ -150,7 +164,9 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
+
     user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
 ]

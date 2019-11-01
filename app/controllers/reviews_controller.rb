@@ -2,14 +2,15 @@ class ReviewsController < ApplicationController
   before_action :set_booking, only: [:new, :create ]
 
   def new
-    @review = Review.new
   end
 
   def create
-    review = Review.new(review_params)
+    @review = Review.new(review_params)
+    authorize @review
+    authorize @booking
     @review.booking = @booking
-    if review.save
-      redirect_to camera_path
+    if @review.save
+      redirect_to camera_path(@booking.camera)
     else
       render 'cameras/show'
     end
@@ -22,6 +23,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params_require(:review).permit(:content, :rating)
+    params.require(:review).permit(:content, :rating)
   end
 end
