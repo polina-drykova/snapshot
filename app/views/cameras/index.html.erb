@@ -57,7 +57,7 @@
       <% @cameras.each do |c| %>
         <div class="card-product">
           <%= link_to camera_path(c), :class => "text-cards" do %>
-          <%= cl_image_tag c.cameraphotos[0].photo, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag c.cameraphotos[(rand(0..2))].photo, height: 300, width: 400, crop: :fill %>
           <div class="card-product-infos">
             <div class="card-top-line">
             <h2> <%= c.name  %> </h2>
