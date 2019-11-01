@@ -30,7 +30,7 @@ require 'faker'
     password:    '1234567',
     name: 'Eric',
     address: "Canggu, Bali",
-    remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
+    remote_avatar_url: 'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=639&q=80',
     about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
   },
   {
@@ -38,7 +38,7 @@ require 'faker'
     password:    '1234567',
     name: 'Sacha',
     address: "Canggu, Bali",
-    remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
+    remote_avatar_url: 'https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80',
     about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
   },
   {
@@ -46,7 +46,7 @@ require 'faker'
     password:    '1234567',
     name: 'Sebastian',
     address: "Canggu, Bali",
-    remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
+    remote_avatar_url: 'https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80',
     about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
   },
  ]
@@ -184,6 +184,30 @@ booking_attributes = [
    user_id:        User.last.id,
    camera_id:      3
   },
+  {
+   rental_date:    Date.today,
+   return_date:    Date.today + 7,
+   total_price:    45,
+   service_fee:    6,
+   user_id:        User.last.id,
+   camera_id:      1
+  },
+  {
+   rental_date:    Date.today,
+   return_date:    Date.today + 2,
+   total_price:    11,
+   service_fee:    1,
+   user_id:        User.last.id,
+   camera_id:      2
+  },
+  {
+   rental_date:    Date.today,
+   return_date:    Date.today + 5,
+   total_price:    70,
+   service_fee:    4,
+   user_id:        User.last.id,
+   camera_id:      4
+  },
 ]
 Booking.create!(booking_attributes)
 puts 'Bookings are finished!'
@@ -191,29 +215,29 @@ puts 'Bookings are finished!'
 puts 'Creating reviews...'
 reviews_attributes = [
   {
-   content:    description,
+   content:    'This is my first review!',
    rating:     rating,
    booking_id:    1,
   },
     {
-   content:    description,
+   content:    'A second review!',
    rating:     rating,
    booking_id:    2,
   },
   {
-   content:    description,
+   content:    'A third review!',
    rating:     rating,
-   booking_id:    1,
+   booking_id:    3,
   },
   {
-   content:    description,
+   content:    'A fourth review!',
    rating:     rating,
-   booking_id:    1,
+   booking_id:    4,
   },
   {
-   content:    description,
+   content:    'A fifth review!',
    rating:     rating,
-   booking_id:    2,
+   booking_id:    5,
   },
 ]
 Review.create!(reviews_attributes)

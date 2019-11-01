@@ -57,10 +57,10 @@
         <h2 class="title"><%= @camera.name %></h2>
           <tr><td><p class="category my-1"><i class="fas fa-map-marker-alt" style="color: #31d843;"></i> <%= @camera.address %></p></td></tr>
 
-              <p class="category">Category: "#"</p>
+              <p class="category"><strong>Category:</strong>  <%= @camera.category %></p>
 
         <div class="price d-flex">
-          <h4 class="my-auto"><%= @camera.price_per_day %></h4><p class="mt-4">$/day</p>
+          <h4 class="my-auto">$<%= @camera.price_per_day %></h4><p class="mt-4">/day</p>
         </div>
 
 
@@ -102,38 +102,29 @@
     <div class="tab-content " id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><br> <!-- implement review: -->
         <!-- review 1 -->
+      <% @camera.reviews.each do |r| %>
        <div class="review mt-0">
         <!-- box avatar/name + rating overall -->
         <div class='review-top d-flex justify-content-between border-shadow mt-0 pt-0 mb-2'>
           <!-- box avatar and name -->
           <div class="avatar-name d-flex justify-content-start ">
-            <%= cl_image_tag('https://images.unsplash.com/photo-1534455700361-eca9c3dbc981?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80', class: "avatar-review" ) %>
-            <p class="my-auto ml-3">User name</p>
+            <% user_id = Booking.find(r.booking_id) %>
+            <% user = User.find(user_id.user_id) %>
+            <%= cl_image_tag(user.avatar.url, class: "avatar-review" ) %>
+
+            <p class="my-auto ml-3"> <%= user.name %> </p>
           </div>
           <div class="my-auto" style="color: yellow">
-            <p class="my-auto"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+            <p> <%= r.check_rating  %></p>
+            <!-- <p class="my-auto"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p> -->
           </div>
         <!-- box text -->
         </div>
-          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
+        <p> <%= r.content %></p>
        </div>
        <hr>
+       <% end %>
        <!-- review 2 -->
-       <div class="review mt-0">
-        <!-- 2. box avatar/name + rating overall -->
-        <div class='review-top d-flex justify-content-between border-shadow mt-0 pt-0 mb-2'>
-          <!-- 1 box avatar and name -->
-          <div class="avatar-name d-flex justify-content-start ">
-            <%= cl_image_tag('https://images.unsplash.com/photo-1558898479-33c0057a5d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80', class: "avatar-review" ) %>
-            <p class="my-auto ml-3">User name</p>
-          </div>
-          <div class="my-auto" style="color: yellow">
-            <p class="my-auto"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-          </div>
-        <!-- 3 box review.text -->
-        </div>
-          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
-       </div>
       <!-- implement review --></div>
       <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><br><p> <%= @camera.description %> </p></div>
       <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><br><p><%= @camera.policies %></p></div>
