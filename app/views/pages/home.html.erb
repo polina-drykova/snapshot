@@ -29,8 +29,10 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item mx-3">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <li class="nav-item  mr-0 d-flex justify-content-row" style="width: 145px">
+          <%= link_to "Login", new_user_session_path, class: "nav-link mt-0" %>
+          <p class="my-auto" style="color: gray;">|</p>
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link mt-0" %>
         </li>
       <% end %>
     </ul>
