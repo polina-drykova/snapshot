@@ -8,7 +8,8 @@
 
 puts 'Cleaning database...'
 Camera.destroy_all
-
+Booking.destroy_all
+User.destroy_all
 
 
 require 'faker'
@@ -32,19 +33,32 @@ require 'faker'
     remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
     about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
   },
+  {
+    email:      'sacha@gmail.com',
+    password:    '1234567',
+    name: 'Sacha',
+    address: "Canggu, Bali",
+    remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
+    about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+  },
+  {
+    email:      'sebastian@gmail.com',
+    password:    '1234567',
+    name: 'Sebastian',
+    address: "Canggu, Bali",
+    remote_avatar_url: 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80',
+    about_me: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+  },
  ]
 
 User.create!(user_attributes)
 
 
 
-
-
-description = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
-policies = Faker::Lorem.paragraphs(rand(1..2)).join('\n')
-price_per_day = (rand(50..150))
-# email = Faker::Internet.email
-# password = Faker::Beer.brand
+description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+policies = 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+price_per_day = (rand(5..20))
+rating = (rand(1...5))
 
 
 puts 'Creating listings...'
@@ -55,7 +69,9 @@ cameras_attributes = [
     description:    'Small reflector used primarily for close-up lighting of female faces to increase light fallout while retaining softness.',
     policies:       'Deposit $5',
     price_per_day:  5,
-    user_id:        1,
+
+    user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
   {
@@ -64,7 +80,9 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  10,
-    user_id:        1,
+
+    user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
   {
@@ -73,7 +91,9 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  13,
-    user_id:        1,
+
+    user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
   {
@@ -82,7 +102,7 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    user_id:        1,
+    user_id:        User.first.id,
     category: Camera::CATEGORY.sample
   },
   {
@@ -91,7 +111,8 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    user_id:        2,
+
+    user_id:        User.last.id,
     category: Camera::CATEGORY.sample
   },
     {
@@ -100,7 +121,9 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  2,
-    user_id:        2,
+
+    user_id:        User.last.id,
+
     category: Camera::CATEGORY.sample
   },
     {
@@ -109,7 +132,9 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    user_id:        1,
+
+    user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
     {
@@ -117,8 +142,9 @@ cameras_attributes = [
     address:        '500 L St SE, Washington, District of Columbia, United States of America',
     description:    description,
     policies:       policies,
-    price_per_day:  6,
-    user_id:        1,
+
+    user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
     {
@@ -127,7 +153,9 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    user_id:        1,
+
+    user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
     {
@@ -136,11 +164,22 @@ cameras_attributes = [
     description:    description,
     policies:       policies,
     price_per_day:  price_per_day,
-    user_id:        1,
+
+    user_id:        User.first.id,
+
     category: Camera::CATEGORY.sample
   },
 ]
-Camera.create!(cameras_attributes)
+
+cameras_attributes.each do |f|
+
+  camera = Camera.create!(f)
+  Cameraphoto.create!(camera: camera, photo: 'https://images.unsplash.com/photo-1514916726007-68847f06dd03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80')
+  Cameraphoto.create!(camera: camera, photo: 'https://images.unsplash.com/photo-1513652990199-8a52e2313122?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+  Cameraphoto.create!(camera: camera, photo: 'https://images.unsplash.com/photo-1560264245-1dbfb9782b8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+  Cameraphoto.create!(camera: camera, photo: 'https://images.unsplash.com/photo-1527011046414-4781f1f94f8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+end
+
 puts 'Listings are finished!'
 
 puts 'Creating bookings...'
@@ -150,7 +189,7 @@ booking_attributes = [
    return_date:    Date.today + 3,
    total_price:    83,
    service_fee:    5,
-   user_id:        1,
+   user_id:        User.first.id,
    camera_id:      5
   },
     {
@@ -158,11 +197,41 @@ booking_attributes = [
    return_date:    Date.today + 5,
    total_price:    101,
    service_fee:    6,
-   user_id:        2,
+   user_id:        User.last.id,
    camera_id:      3
   },
 ]
 Booking.create!(booking_attributes)
 puts 'Bookings are finished!'
 
+puts 'Creating reviews...'
+reviews_attributes = [
+  {
+   content:    description,
+   rating:     rating,
+   booking_id:    1,
+  },
+    {
+   content:    description,
+   rating:     rating,
+   booking_id:    2,
+  },
+  {
+   content:    description,
+   rating:     rating,
+   booking_id:    1,
+  },
+  {
+   content:    description,
+   rating:     rating,
+   booking_id:    1,
+  },
+  {
+   content:    description,
+   rating:     rating,
+   booking_id:    2,
+  },
+]
+Review.create!(reviews_attributes)
+puts 'Reviews are finished!'
 
