@@ -32,7 +32,8 @@
     </div>
 </div>
 <!-- navbar end -->
-<div class="profile-card pt-3 pl-3">
+  <div class="">
+<div class="profile-card pt-3 pl-5">
   <div class="avatar-container align-items-center  ml-2" >
     <div class="d-flex flex-column text-center " style="width: 95%;">
       <% unless current_user.avatar.blank? %>
@@ -53,7 +54,7 @@
 
 
 
-  <div class="avatar-info ml-5" style="width: 50%">
+  <div class="avatar-info ml-5" style="width: 55%">
     <h1>Hey, I'm <%= current_user.name %></h1>
     <tr><td><p class="my-1"><i class="fas fa-map-marker-alt" style="color: #107E7D;"></i> <%= current_user.address %></p></td></tr>
 
@@ -61,6 +62,7 @@
 
     <p class="mb-1 pb-0">About me:</p>
     <p class="mt-0 pt-0">"<%= current_user.about_me %>"</p>
+  </div>
   </div>
 
 </div>
