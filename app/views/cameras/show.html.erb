@@ -20,7 +20,7 @@
 
             <img class="d-block w-100"
             <%= cl_image_tag @camera.cameraphotos[0].photo, height: 300, style: "width:100%" , crop: :fill %>>
-            
+
           </div>
           <% @camera.cameraphotos[1..-1].each do |c| %>
             <div class="carousel-item">
@@ -80,7 +80,7 @@
                <div id="booking-price">
 
                </div>
-               <%= f.submit "Book now", class: "button-color2 mt-auto" %>
+               <%= f.submit "Book now", data: { confirm: 'Thank you for your interest! If you click OK, your booking will be confirmed' }, class: "button-color2 mt-auto" %>
             <% end %>
           <% end %>
         </div>
