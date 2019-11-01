@@ -30,6 +30,8 @@ class BookingsController < ApplicationController
   def show
     @camera = @booking.camera
     authorize @booking
+    @review = Review.new
+
   end
 
   def update
