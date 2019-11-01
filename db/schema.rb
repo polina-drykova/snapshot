@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_034629) do
     t.float "longitude"
     t.json "photos"
     t.string "category"
-    t.integer "average_rating"
+    t.integer "average_rating", default: 0
     t.index ["user_id"], name: "index_cameras_on_user_id"
   end
 

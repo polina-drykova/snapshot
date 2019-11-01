@@ -17,7 +17,7 @@
             class: "form-control",
             placeholder:"What are you looking for?"
           %>
-          <%= select_tag :sort, options_for_select(["sort by price | max - min |", "sort by price | min - max |", "sort by | A - Z | "]), class:"sort-selector" %>
+          <%= select_tag :sort, options_for_select(["sort by price | max - min |", "sort by price | min - max |", "sort by | A - Z | ", "sort by rating | min - max |", "sort by rating | max - min |"]), class:"sort-selector" %>
           <%= submit_tag "Search", class: "btn btn-success pl-3" %>
           <% end %>
 

@@ -30,6 +30,10 @@ before_action :set_camera, only: [:show, :edit, :update, :destroy]
         @cameras = @cameras.sort_by { |camera| camera.price_per_day }
     elsif params[:sort] == "sort by price | max - min |"
         @cameras = @cameras.sort_by { |camera| -camera.price_per_day }
+    elsif params[:sort] == "sort by rating | min - max |"
+        @cameras = @cameras.sort_by { |camera| camera.average_rating }
+    elsif params[:sort] == "sort by rating | max - min |"
+        @cameras = @cameras.sort_by { |camera| -camera.average_rating }
     else
         @cameras = @cameras.sort_by { |camera| camera.name }
     end
