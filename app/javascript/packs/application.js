@@ -7,6 +7,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete  } from '../plugins/init_autocomplete';
 import {calculatePrice} from "../components/calculatePrice";
 import { initStarRating } from '../plugins/init_star_rating';
+import {checkboxDropdown} from "../components/checkDropdown";
 
 
 initMapbox();
@@ -14,3 +15,4 @@ calculatePrice();
 initFlatpickr();
 initAutocomplete();
 initStarRating();
+checkboxDropdown('.dropdown');
