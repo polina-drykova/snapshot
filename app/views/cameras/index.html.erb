@@ -57,7 +57,9 @@
         <div class="card-product">
           <%= link_to camera_path(c), :class => "text-cards" do %>
           <!-- Fix below to sample instead of rand -->
-          <%= cl_image_tag c.cameraphotos[(rand(0..2))].photo, height: 300, width: 400, crop: :fill %>
+        <% if c.cameraphotos[0] %>
+          <%= cl_image_tag c.cameraphotos[0].photo, height: 300, width: 400, crop: :fill %>
+          <% end %>
           <div class="card-product-infos">
             <div class="card-top-line">
             <h2> <%= c.name  %> </h2>
