@@ -1,33 +1,27 @@
-
-
 <%= render 'shared/navbar' %>
 
 <div class="my-5">
   <div class="card d-flex justify-content-center align-items-column m-auto py-4" style="width: 450px">
     <h2 class="text-center ">Here is your quote</h2>
-      <div class="form-inputs m-auto pt-3 " style="width: 600px;">
+      <div class="form-inputs m-auto pt-3" style="width: 600px;">
             <% @bookings.each do |booking| %>
               <div class="frame">
-                  <div class="bookingdates">
+                <div class="bookingdates">
                   <h3>Rental Date</h3>
-                   <p ><%= booking.rental_date %></p>
-                   <h3>Return Date</h3>
-                   <p><%= booking.return_date %></p>
-                  </div>
-                   <div>
-                    <p> numbers of days <%= ((-(booking.rental_date - booking.return_date)) +1).to_i  %> </p>
-                    <p> * Price per day <%= booking.camera.price_per_day %> </p>
-                    <p> +service fee <%= booking.service_fee%>$</p>
-                    <hr>
-                   <h3>Total Price</h3>
-                    <p><strong> = total price <%= booking.total_price + booking.service_fee %>$ </strong></p>
-                    <hr>
-                  </div>
+                  <p><%= booking.rental_date %></p>
+                  <h3>Return Date</h3>
+                  <p><%= booking.return_date %></p>
+                </div>
+                  <p> numbers of days <%= ((-(booking.rental_date - booking.return_date)) +1).to_i  %> </p>
+                  <p> * Price per day <%= booking.camera.price_per_day %> </p>
+                  <p> +service fee <%= booking.service_fee%>$</p>
+                  <hr>
+                  <h3>Total Price</h3>
+                  <p><strong> = total price <%= booking.total_price + booking.service_fee %>$ </strong></p>
+                  <hr>
               </div>
             <% end %>
-          </div>
       </div>
-
   </div>
 </div>
 
