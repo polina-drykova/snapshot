@@ -1,155 +1,145 @@
 <%= render 'shared/navbar' %>
-<div class="container mt-4 p-0" style="width: 1000px;">
-  <%= link_to '<< Back', cameras_path, class: "link" %>
-</div>
-<div class="container bg-white mb-5 pb-5" style="width: 80%">
+  <div class="container mt-4 p-0" style="width: 1000px;">
+    <%= link_to '<< Back', cameras_path, class: "link" %>
+  </div>
+  <div class="container bg-white mb-5 pb-5" style="width: 80%">
 
-  <div class="row d-flex justify-content-between mt-3 mb-5">
-    <div class="col-md-4 mt-3 ">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <% count = @camera.cameraphotos.count %>
-          <% item = 1 %>
-          <% while item <= count %>
-            <li data-target="#carouselExampleIndicators" data-slide-to='#{item}'></li>
-            <% item+=1 %>
+    <div class="row d-flex justify-content-between mt-3 mb-5">
+      <div class="col-md-4 mt-3 ">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <% count = @camera.cameraphotos.count %>
+            <% item = 1 %>
+            <% while item <= count %>
+              <li data-target="#carouselExampleIndicators" data-slide-to='#{item}'></li>
+              <% item+=1 %>
             <% end %>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-
-          <% if @camera.cameraphotos[0] %>
-            <%= cl_image_tag @camera.cameraphotos[0].photo, class: "d-block w-100", height: 300, style: "width:100%" , crop: :fill %>
-          <% end %>
-
-          </div>
-          <% if @camera.cameraphotos[1] %>
-          <% @camera.cameraphotos[1..-1].each do |c| %>
-            <div class="carousel-item">
-              <%= cl_image_tag c.photo, class: "d-block w-100", height: 300, style: "width:100%" , crop: :fill %>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <% if @camera.cameraphotos[0] %>
+                <%= cl_image_tag @camera.cameraphotos[0].photo, class: "d-block w-100", height: 300, style: "width:100%" , crop: :fill %>
+              <% end %>
             </div>
+            <% if @camera.cameraphotos[1] %>
+              <% @camera.cameraphotos[1..-1].each do |c| %>
+                <div class="carousel-item">
+                  <%= cl_image_tag c.photo, class: "d-block w-100", height: 300, style: "width:100%" , crop: :fill %>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="col-md-4 mt-4 ">
-      <div class="d-flex justify-content-between">
-        <p><% if @camera.previous_camera %>
-          <%= link_to 'previous', camera_path(@camera.previous_camera), class: "link" %>
-        <% end  %>
-        |
-        <% if @camera.next_camera %>
-          <%= link_to 'next', camera_path(@camera.next_camera), class: "link" %>
-        <% end  %></p>
-        <!-- edit/delete icons -->
-
-        <div class="">
-          <% if current_user == @camera.user %>
-          <%= link_to edit_camera_path(@camera) do %><i class="fas fa-edit" style=""></i></%><% end %>
-          <%= link_to camera_path(@camera), method: :delete, data: { confirm: 'Are you sure?' }  do %><i class="fas fa-trash"></i><% end %>
-          <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </div>
+
+      <div class="col-md-4 mt-4 ">
+        <div class="d-flex justify-content-between">
+          <p><% if @camera.previous_camera %>
+            <%= link_to 'previous', camera_path(@camera.previous_camera), class: "link" %>
+          <% end  %>
+          |
+          <% if @camera.next_camera %>
+            <%= link_to 'next', camera_path(@camera.next_camera), class: "link" %>
+          <% end  %></p>
+          <!-- edit/delete icons -->
+          <div>
+            <% if current_user == @camera.user %>
+              <%= link_to edit_camera_path(@camera) do %><i class="fas fa-edit" style=""></i></%><% end %>
+              <%= link_to camera_path(@camera), method: :delete, data: { confirm: 'Are you sure?' }  do %><i class="fas fa-trash"></i><% end %>
+            <% end %>
+          </div>
+        </div>
 
         <!-- title and edit/delete icons -->
         <!-- previous/next logic -->
         <h2 class="title"><%= @camera.name %></h2>
         <p><%= @camera.check_rating(@camera.average_rating)  %> <%= @camera.display_rating_count(@camera.reviews.count) %></p>
         <p class="category"><strong>Category:</strong>  <%= @camera.category %></p>
-          <tr><td><p class="category my-1"><i class="fas fa-map-marker-alt" style="color: #31d843;"></i> <%= @camera.address %></p></td></tr>
-
-
-
+        <tr><td><p class="category my-1"><i class="fas fa-map-marker-alt" style="color: #31d843;"></i> <%= @camera.address %></p></td></tr>
         <div class="price d-flex">
           <h4 class="my-auto">$</h4>
           <h4 class="my-auto price-js"><%= @camera.price_per_day %></h4><p class="mt-2">/day</p>
         </div>
 
+      </div>
+
+      <div class="col-md-4 mt-3">
+        <div class="bookings-container pt-1">
+          <h3><strong>Book now</strong></h3>
+          <div id='cameras-booking-dates' data-unavailable="<%= @camera.unavailable_dates.to_json %>">
+            <%= simple_form_for([@camera, @booking]) do |f| %>
+              <%= f.input :rental_date, html5: true, placeholder: false %>
+              <%= f.input :return_date, html5: true, placeholder: false %>
+              <div id="booking-price">
+              </div>
+              <%= f.submit "Book now", data: { confirm: 'Thank you for your interest! If you click OK, your booking will be confirmed' }, class: "button-color2 mt-auto" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
     </div>
 
-    <div class="col-md-4 mt-3">
-      <div class="bookings-container pt-1">
-          <h3><strong>Book now</strong></h3>
-
-        <div id='cameras-booking-dates' data-unavailable="<%= @camera.unavailable_dates.to_json %>">
-
-           <%= simple_form_for([@camera, @booking]) do |f| %>
-               <%= f.input :rental_date, html5: true, placeholder: false %>
-               <%= f.input :return_date, html5: true, placeholder: false %>
-               <div id="booking-price">
-
-               </div>
-
-               <%= f.submit "Book now", data: { confirm: 'Thank you for your interest! If you click OK, your booking will be confirmed' }, class: "button-color2 mt-auto" %>
+    <div class="nav-tabs">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Description</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Policy</a>
+        </li>
+      </ul>
+      <div class="tab-content " id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><br> <!-- implement review: -->
+          <!-- review 1 -->
+            <% @camera.reviews.each do |r| %>
+              <div class="review mt-0">
+                <!-- box avatar/name + rating overall -->
+                  <div class='review-top d-flex justify-content-between border-shadow mt-0 pt-0 mb-2'>
+                    <!-- box avatar and name -->
+                      <div class="avatar-name d-flex justify-content-start ">
+                        <% user_id = Booking.find(r.booking_id) %>
+                        <% user = User.find(user_id.user_id) %>
+                        <%= cl_image_tag(user.avatar.url, class: "avatar-review" ) %>
+                        <p class="my-auto ml-3"> <%= user.name %> </p>
+                      </div>
+                    <div class="my-auto" style="color: yellow">
+                      <p> <%= r.check_rating  %></p>
+                      <!-- <p class="my-auto"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p> -->
+                    </div>
+                  </div>
+                  <!-- box text -->
+                  <p> <%= r.content %></p>
+              </div>
+              <hr>
             <% end %>
-
+            <!-- review 2 -->
+            <!-- implement review -->
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <br>
+          <p><%= @camera.description %></p>
+        </div>
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <br>
+          <p><%= @camera.policies %></p>
         </div>
       </div>
     </div>
   </div>
 
-
-  <div class="nav-tabs">
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Reviews</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Description</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Policy</a>
-      </li>
-    </ul>
-    <div class="tab-content " id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><br> <!-- implement review: -->
-        <!-- review 1 -->
-      <% @camera.reviews.each do |r| %>
-       <div class="review mt-0">
-        <!-- box avatar/name + rating overall -->
-        <div class='review-top d-flex justify-content-between border-shadow mt-0 pt-0 mb-2'>
-          <!-- box avatar and name -->
-          <div class="avatar-name d-flex justify-content-start ">
-            <% user_id = Booking.find(r.booking_id) %>
-            <% user = User.find(user_id.user_id) %>
-            <%= cl_image_tag(user.avatar.url, class: "avatar-review" ) %>
-
-            <p class="my-auto ml-3"> <%= user.name %> </p>
-          </div>
-          <div class="my-auto" style="color: yellow">
-            <p> <%= r.check_rating  %></p>
-            <!-- <p class="my-auto"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p> -->
-          </div>
-        <!-- box text -->
-        </div>
-        <p> <%= r.content %></p>
-       </div>
-       <hr>
-       <% end %>
-       <!-- review 2 -->
-      <!-- implement review --></div>
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><br><p> <%= @camera.description %> </p></div>
-      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><br><p><%= @camera.policies %></p></div>
-    </div>
-  </div>
-
-</div>
-
 <!-- tabs: description/policy/reviews -->
-
-
-
 <%= render 'shared/footer' %>
 
 
