@@ -8,7 +8,7 @@
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
             <li class="nav-item active">
-              <%= link_to "Home", root_path, class: "nav-link", style:"color: gray;", hover:"?" %>
+              <%= link_to "Home", root_path, class: "nav-link", style:"color: gray;", hover:"color: black;" %>
             </li>
             <li class="nav-item">
               <%= link_to "Add listing", new_camera_path, class: "nav-link mr-2" %>
@@ -36,8 +36,8 @@
   <div>
     <div class="profile-card pt-3 pl-5">
       <!-- avatar start -->
-        <div class="avatar-container align-items-center  ml-2" >
-          <div class="d-flex flex-column text-center " style="width: 95%;">
+        <div class="avatar-container ml-2" >
+          <div class="avatar-wrap">
             <% unless current_user.avatar.blank? %>
               <%= cl_image_tag current_user.avatar , class: "ava my-2" %>
             <% else %>
@@ -59,7 +59,7 @@
         </div>
       <!-- avatar end -->
       <!-- avatar info start -->
-        <div class="avatar-info ml-5" style="width: 55%">
+        <div class="avatar-info ml-5">
           <h1>Hey, I'm <%= current_user.name %></h1>
           <tr>
             <td>
