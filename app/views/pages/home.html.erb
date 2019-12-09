@@ -1,50 +1,40 @@
 <div class="banner d-flex align-items-end justify-content-center flex-column" id="banner">
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon2 d-flex justify-content px-5" style="width: 100%">
-
-
-  <%= link_to image_tag("snapshot_logo2.png"), root_path, class: "navbar-brand py-0 mx-3" %>
-
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse mx-3" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <% unless current_user.avatar.blank? %>
-            <%= cl_image_tag current_user.avatar , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else %>
-            <%= image_tag 'placeholder-person.jpg' , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", profile_path, class: "dropdown-item" %>
-            <hr class="mx-auto mt-1 mb-0 p-0 d-flex" style="width: 75%;">
-            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
-            <hr class="mx-auto mt-1 mb-0 p-0 d-flex" style="width: 75%;">
-
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item  mr-0 d-flex justify-content-row" style="width: 145px">
-          <%= link_to "Login", new_user_session_path, class: "nav-link mt-0" %>
-          <p class="my-auto" style="color: gray;">|</p>
-          <%= link_to "Sign up", new_user_registration_path, class: "nav-link mt-0" %>
-        </li>
-      <% end %>
-    </ul>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon2 d-flex justify-content px-5" style="width: 100%">
+    <%= link_to image_tag("snapshot_logo2.png"), root_path, class: "navbar-brand py-0 mx-5" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mx-5" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <% unless current_user.avatar.blank? %>
+              <%= cl_image_tag current_user.avatar , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag ('placeholder-person.jpg'), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "Profile", profile_path, class: "dropdown-item" %>
+              <hr class="mx-auto mt-1 mb-0 p-0 d-flex" style="width: 75%;">
+              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+              <hr class="mx-auto mt-1 mb-0 p-0 d-flex" style="width: 75%;">
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item  mr-0 d-flex justify-content-row" style="width: 145px">
+            <%= link_to "Login", new_user_session_path, class: "nav-link mt-0" %>
+            <p class="my-auto" style="color: gray;">|</p>
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link mt-0" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-</div>
     <div class="container mx-auto text-center">
       <h1 style="color: white">Filling the frame</h1>
       <h3 style="justify-content: center">Rent cameras and photography equipment</h3>
     </div>
-
-
-
 
     <!-- buttons bundle -->
     <div class="buttons-bundle">
