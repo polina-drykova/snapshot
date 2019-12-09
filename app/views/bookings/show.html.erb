@@ -1,7 +1,6 @@
 <%= render 'shared/navbar' %>
-
 <div class="container my-5 pb-4 bg-white">
-    <h2 class="text-center mt-3 pt-3">Booking details</h2>
+  <h2 class="text-center mt-3 pt-3">Booking details</h2>
 
   <div class="row d-flex justify-content-between mt-3 mb-5">
     <div class="col-md-4 mt-3 ">
@@ -12,11 +11,10 @@
           <% while item <= count %>
             <li data-target="#carouselExampleIndicators" data-slide-to='#{item}'></li>
             <% item+=1 %>
-            <% end %>
+          <% end %>
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-
             <%= cl_image_tag @camera.cameraphotos[0].photo, height: 400, width: 500 , crop: :fill, class: "d-block w-100" %>
           </div>
           <% @camera.cameraphotos[1..-1].each do |c| %>
@@ -36,43 +34,41 @@
       </div>
     </div>
 
-
-      <div class="form-inputs pt-3 " style="width: 740px;">
-<div class="col-md-4 mt-4" >
-              <div class="frame" style="width: 650px;">
-                  <div class="bookingdates">
-                    <div class="d-flex justify-content-between">
-                      <h3>Rental Date</h3>
-                       <p class=><%= @booking.rental_date %></p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                      <h3>Return Date</h3>
-                        <p class=><%= @booking.return_date %></p>
-                       </div>
-                    </div>
-
-                    <div class="d-flex justify-content-between">
-                    <p> Numbers of days <strong><%= ((-(@booking.rental_date - @booking.return_date))).to_i  %></strong> </p>
-                    </div>
-                    <hr>
-                   <div class="camera-price">
-                    <p> * Price per day <strong>$<%= @booking.camera.price_per_day %> </strong> </p>
-                    <p> + Service fee <strong>$<%= (((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day)*0.02)%> </strong></p>
-                    <hr>
-                   <h3>Total Price</h3>
-                    <p class="text-align-right"><strong> $<%= ((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day) + (((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day)*0.02) %> </strong></p>
-                    <hr class="mb-5">
-                  </div>
-                  <%= link_to "Go back to bookings", dashboard_path, :class => "button-color2" %>
-                  <%= link_to "Go to listing", camera_path(@camera), :class => "button-color2" %>
-              </div>
+    <div class="form-inputs pt-3 " style="width: 740px;">
+      <div class="col-md-4 mt-4" >
+        <div class="frame" style="width: 650px;">
+          <div class="bookingdates">
+            <div class="d-flex justify-content-between">
+              <h3>Rental Date</h3>
+              <p class=><%= @booking.rental_date %></p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h3>Return Date</h3>
+              <p class=><%= @booking.return_date %></p>
+            </div>
           </div>
+          <div class="d-flex justify-content-between">
+            <p> Numbers of days <strong><%= ((-(@booking.rental_date - @booking.return_date))).to_i  %></strong> </p>
+          </div>
+          <hr>
+          <div class="camera-price">
+            <p> * Price per day <strong>$<%= @booking.camera.price_per_day %> </strong> </p>
+            <p> + Service fee <strong>$<%= (((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day)*0.02)%> </strong></p>
+            <hr>
+            <h3>Total Price</h3>
+            <p class="text-align-right"><strong> $<%= ((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day) + (((((-(@booking.rental_date - @booking.return_date))).to_i )*@booking.camera.price_per_day)*0.02) %> </strong></p>
+            <hr class="mb-5">
+          </div>
+          <%= link_to "Go back to bookings", dashboard_path, :class => "button-color2" %>
+          <%= link_to "Go to listing", camera_path(@camera), :class => "button-color2" %>
         </div>
       </div>
+    </div>
+  </div>
     <h2 class="text-center">Add a review</h2>
   <div class="d-flex justify-content-center text-center m-auto py-4" style="max-width: 550px" style="height: 500px;">
     <div class="text-center" style="width: 400px;">
-        <%= simple_form_for [@booking, @review] do |f| %>
+      <%= simple_form_for [@booking, @review] do |f| %>
         <%= f.input :rating, collection: 1..5,
                     label: false,
                     required: false %>
@@ -86,9 +82,8 @@
         <div class="form-actions">
           <%= f.button :submit, "Send", class: "button-color mb-2", style: "width: 75%;" %>
         </div>
-        <% end %>
+      <% end %>
     </div>
   </div>
-
 </div>
 <%= render 'shared/footer' %>
