@@ -15,11 +15,11 @@
           </li>
           <li class="nav-item dropdown">
             <% unless current_user.avatar.blank? %>
-            <%= cl_image_tag current_user.avatar , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else %>
-            <%= image_tag 'placeholder-person.jpg' , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
+              <%= cl_image_tag current_user.avatar , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag 'placeholder-person.jpg' , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
@@ -33,41 +33,34 @@
 </div>
 <!-- navbar end -->
   <div class="">
-<div class="profile-card pt-3 pl-5">
-  <div class="avatar-container align-items-center  ml-2" >
-    <div class="d-flex flex-column text-center " style="width: 95%;">
-      <% unless current_user.avatar.blank? %>
-        <%= cl_image_tag current_user.avatar , class: "ava my-2" %>
-      <% else %>
-        <%= image_tag 'placeholder-person.jpg' , class: "ava my-2" %>
-      <% end %>
-      <tr><td><%= link_to "Edit profile", edit_user_registration_path, class: "link-color mb-2" %></td></tr>
-    </div>
-    <div style="width: 95%;">
-    <hr class="mx-auto mt-2 mb-2 p-0" style="width: 95%;">
-    <tr><td><%= link_to "Dashboard", dashboard_path(current_user), class: "link-standart px-3 py-2 pb-2 my-3 mb-2" %></td></tr>
-    <br>
-    <hr class="mx-auto mt-1 mb-1 p-0" style="width: 95%;">
-    <tr><td><%= link_to "Change password", edit_user_password_path(current_user), class: "link-standart px-3 mt-2 mb-4" %></td></tr>
-    </div>
+    <div class="profile-card pt-3 pl-5">
+      <div class="avatar-container align-items-center  ml-2" >
+        <div class="d-flex flex-column text-center " style="width: 95%;">
+          <% unless current_user.avatar.blank? %>
+            <%= cl_image_tag current_user.avatar , class: "ava my-2" %>
+          <% else %>
+            <%= image_tag 'placeholder-person.jpg' , class: "ava my-2" %>
+          <% end %>
+        </div>
+        <div style="width: 95%;">
+          <hr class="mx-auto mt-2 mb-2 p-0" style="width: 95%;">
+          <tr><td><%= link_to "Dashboard", dashboard_path(current_user), class: "link-standart px-3 py-2 pb-2 my-3 mb-2" %></td></tr>
+          <br>
+          <hr class="mx-auto mt-1 mb-1 p-0" style="width: 95%;">
+          <tr><td><%= link_to "Edit profile", edit_user_registration_path, class: "link-color px-3 mt-2 mb-4" %></td></tr>
+          <!-- <tr><td><%#= link_to "Change password", edit_user_password_path(current_user), class: "link-standart px-3 mt-2 mb-4" %></td></tr> -->
+        </div>
+      </div>
+
+      <div class="avatar-info ml-5" style="width: 55%">
+        <h1>Hey, I'm <%= current_user.name %></h1>
+        <tr><td><p class="my-1"><i class="fas fa-map-marker-alt" style="color: #107E7D;"></i> <%= current_user.address %></p></td></tr>
+        <hr class="mt-1 mb-3 ml-0 p-0" style="width: 30%;">
+        <p class="mb-1 pb-0">About me:</p>
+        <p class="mt-0 pt-0">"<%= current_user.about_me %>"</p>
+      </div>
   </div>
-
-
-
-  <div class="avatar-info ml-5" style="width: 55%">
-    <h1>Hey, I'm <%= current_user.name %></h1>
-    <tr><td><p class="my-1"><i class="fas fa-map-marker-alt" style="color: #107E7D;"></i> <%= current_user.address %></p></td></tr>
-
-    <hr class="mt-1 mb-3 ml-0 p-0" style="width: 30%;">
-
-    <p class="mb-1 pb-0">About me:</p>
-    <p class="mt-0 pt-0">"<%= current_user.about_me %>"</p>
-  </div>
-  </div>
-
 </div>
-
-
 
 <%= render 'shared/footer' %>
 
