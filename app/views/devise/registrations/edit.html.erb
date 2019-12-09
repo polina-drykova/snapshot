@@ -5,11 +5,28 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :email,
+                hint: "leave it blank if you don't want to change it",
+                # placeholder: true,
+                required: false,
+                input_html: { autocomplete: "email" } %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
+    <%= f.input :name,
+                # hint: "leave it blank if you don't want to change it",
+                # placeholder: true,
+                required: false %>
+    <%= f.input :address,
+                # hint: "leave it blank if you don't want to change it",
+                # placeholder: true,
+                required: false %>
+    <%= f.input :about_me,
+                label: false,
+                # placeholder,
+                :as => :text,
+                :input_html => { 'rows' => 4, 'cols' => 10 } %>
 
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
@@ -22,6 +39,12 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+  </div>
+  <div class="mx-auto my-3" style="width: 55%;">
+    <%= f.input :avatar,
+                label: false %>
+    <%= f.input :avatar_cache,
+                as: :hidden %>
   </div>
 
   <div class="form-actions">
