@@ -6,9 +6,11 @@
   <div class="collapse navbar-collapse mx-5" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+      <% if action_name != 'index' then %>
         <li class="nav-item active">
-          <%= link_to "Home", root_path, class: "nav-link", style:"color: gray;", hover:"?" %>
+          <%= link_to "Home", cameras_path, class: "nav-link", style:"color: gray;", hover:"?" %>
         </li>
+      <% end %>
         <li class="nav-item">
           <%= link_to "Add listing", new_camera_path, class: "nav-link mr-2" %>
         </li>
