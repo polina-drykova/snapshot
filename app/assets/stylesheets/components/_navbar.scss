@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  height: 9vh;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,7 +12,9 @@
   width: 70px;
   padding: 0;
 }
-
+.dropdown {
+  cursor: pointer;
+}
 a.nav-link {
   color: gray;
     &:hover {
